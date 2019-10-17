@@ -50,34 +50,6 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Echo all values
         echo "ShoeSize: " . $row["shoeSize"] . "<br>";
-
-        for ($i = 0; $i < $result->num_rows; $i++) {
-            if ($row["shoesize"] == 36) {
-                $_36 += 1;
-            } else if ($row["shoesize"] == 37) {
-                $_37 += 1;
-            } else if ($row["shoesize"] == 38) {
-                $_38 += 1;
-            } else if ($row["shoesize"] == 39) {
-                $_39 += 1;
-            } else if ($row["shoesize"] == 40) {
-                $_40 += 1;
-            } else if ($row["shoesize"] == 41) {
-                $_41 += 1;
-            } else if ($row["shoesize"] == 42) {
-                $_42 += 1;
-            } else if ($row["shoesize"] == 43) {
-                $_43 += 1;
-            } else if ($row["shoesize"] == 44) {
-                $_44 += 1;
-            } else if ($row["shoesize"] == 45) {
-                $_45 += 1;
-            } else if ($row["shoesize"] == 46) {
-                $_46 += 1;
-            } else if ($row["shoesize"] == 47) {
-                $_47 += 1;
-            }
-        }
     }
 }
 ?>
