@@ -41,6 +41,7 @@ and open the template in the editor.
                 echo $sql;
                 
                 if ($conn->query($sql) == TRUE) {
+                    header('location: delete_redirect.html');
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
