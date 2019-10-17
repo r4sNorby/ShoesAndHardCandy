@@ -30,7 +30,7 @@ and open the template in the editor.
         }
         
         // Was the delete button pressed?
-        if (isset($_POST['delete'])) {
+        if (isset($_POST['id'])) {
             $id = $_POST['id'];
             
             // For each id that was checked, delete that row
@@ -41,7 +41,6 @@ and open the template in the editor.
                 echo $sql;
                 
                 if ($conn->query($sql) == TRUE) {
-                    echo $id . " deleted";
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }

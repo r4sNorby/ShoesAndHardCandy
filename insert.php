@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>INSERT</title>
     </head>
     <body>
         <?php
@@ -22,15 +22,19 @@ and open the template in the editor.
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
+        
+        // Prepared statement
         $stmt = $conn->prepare("INSERT INTO ShoeSize (name, email, age, shoeSize)
                VALUES (?, ?, ?, ?)");
+        // Bind to values from form. The form posts the names of the inputs.
         $stmt->bind_param("ssii", $_POST['name'], $_POST['email'], $_POST['age'], $_POST['shoeSize']);
-
+        
+        // Execute statement and check if it was successful
         if ($stmt->execute()) {
             // !!Redirect to list.php after submitting form!!
             header('location: redirect.html');
         } else {
+            // Or display error
             echo "The SQL: '" . $sql . "' was faulty!<br>" . $conn->error;
         }
 

@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Skostørrelseliste</title>
     </head>
     <body>
         <?php
@@ -22,22 +22,28 @@ and open the template in the editor.
             die("Connection failed: " . $conn->connect_error);
         }
         ?>
+        <!-- Delete-form with checkboxes for deleting rows -->
         <form action="delete.php" method="post">
             <?php
             $sql = "SELECT * FROM ShoeSize ORDER BY id ASC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
+                //  Return results as an associative array and do stuff as long as there's data in it.
                 while ($row = $result->fetch_assoc()) {
                     ?>
+                    <!-- Adding a checkbox before each row -->
                     <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
                     <?php
-                    echo "id: " . $row["id"] . "Navn: " . $row["name"] . " - Email: " . $row["email"] . " - Age: " . $row["age"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
+                    // Echo all values
+                    echo "id: " . $row["id"] . " - Navn: " . $row["name"] . " - Email: " . $row["email"] . " - Age: " . $row["age"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
                 }
                 ?>
-                <input type="submit" value="Delete">
+                <!-- Submit button for deleting rows -->
+                <input type="submit" name="delete" value="Delete">
                 <?php
             } else {
-                echo "0 results";
+                // If empty
+                echo "SORRY! Please contact your administrator. Soooo... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
             }
             ?>
         </form>
