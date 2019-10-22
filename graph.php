@@ -44,7 +44,7 @@ $result = $conn->query($sql);
                 var options = {'title':'Skostørrelse',
                        'colors': ['#228B22'],
                        'width':1200,
-                       'height':600};
+                       'height':500};
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
                 chart.draw(data, options);
             }
@@ -52,8 +52,13 @@ $result = $conn->query($sql);
 
     </head>
     <body>
-        <div id="chart_div"></div>
 
+        <div>
+            <h1>Skostørrelse <a href="pie.php">(Pie)</a></h1>
+        </div>
+        
+        <div id="chart_div"></div>
+        
         <a href="index.html">Home</a>
         <a href="list.php">List</a>
         <a href="graph.php">Graph</a>
