@@ -51,7 +51,5 @@ and open the template in the editor.
         <a href="index.html">Home</a>
         <a href="list.php">List</a>
         <a href="graph.php">Graph</a>
-        <a href="insert.php">Insert</a>
-        <a href="redirect.html">Redirect</a>
     </body>
 </html>
