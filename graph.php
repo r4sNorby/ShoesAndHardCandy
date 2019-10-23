@@ -57,10 +57,11 @@ $result = $conn->query($sql);
             <h1>Skostørrelse <a href="pie.php">(Pie)</a></h1>
         </div>
         
-        <div id="chart_div"></div>
         
         <a href="index.html">Home</a>
         <a href="list.php">List</a>
         <a href="graph.php">Graph</a>
+        
+        <div id="chart_div"></div>
     </body>
 </html>
