@@ -3,7 +3,9 @@
         <!--Load the AJAX API-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-
+            
+            // This is an example of the google charts API
+            
             // Load the Visualization API and the corechart package.
             google.charts.load('current', {'packages': ['corechart']});
 

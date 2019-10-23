@@ -25,6 +25,18 @@ $result = $conn->query($sql);
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
             
+            // Function to generate a random color
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
+            // Function to draw the google chart
             function drawChart() {
                 var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Name');
@@ -32,17 +44,20 @@ $result = $conn->query($sql);
                     data.addRows([
 
                     <?php
+                    // Insert the name and shoesize from a database via php
                     if (mysqli_num_rows($result) > 0) {
 
                     while ($row = mysqli_fetch_array($result)) {
-
+                        
+                    // This is the format that google charts require
                     echo "['" . $row['name'] . "', " . $row['shoeSize'] . "],";
                     }
                 }
                 ?>
                 ]);
+                // Options for the chart
                 var options = {'title':'Skostørrelse',
-                       'colors': ['#228B22'],
+                       'colors': [getRandomColor(), '#228B22'],
                        'width':1200,
                        'height':500};
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
