@@ -21,26 +21,26 @@ and open the template in the editor.
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $id = $_POST['id'];
-        
-        
+
         //Print array values
-        foreach($id as $id){
-            echo $id[0];
-        }
-        
-        // Was the delete button pressed?
+        //foreach($id as $id){
+        //    echo $id[0];
+        //}
+        // Was the delete button pressed while a checkbox was checked?
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            
+
             // For each id that was checked, delete that row
             for ($i = 0; $i < count($id); $i++) {
                 $del_id = $id[$i];
-                $sql = "DELETE FROM ShoeSize WHERE id = $del_id";
-                
-                echo $sql;
-                
-                if ($conn->query($sql) == TRUE) {
+
+                // Prepared statement
+                $stmt = $conn->prepare("DELETE FROM ShoeSize WHERE id = ?");
+
+                // Bind to values from form
+                $stmt->bind_param(i, $del_id);
+
+                if ($stmt->execute()) {
                     header('location: delete_redirect.html');
                 } else {
                     echo "Error deleting record: " . $conn->error;
@@ -49,6 +49,7 @@ and open the template in the editor.
         } else {
             echo "No checkboxes were checked!";
         }
+        $stmt->close();
         $conn->close();
         ?>
         <br>

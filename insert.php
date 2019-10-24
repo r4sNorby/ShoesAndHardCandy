@@ -32,7 +32,7 @@ and open the template in the editor.
         // Execute statement and check if it was successful
         if ($stmt->execute()) {
             // !!Redirect to list.php after submitting form!!
-            header('location: redirect.html');
+            header('location: insert_redirect.html');
         } else {
             // Or display error
             echo "The SQL: '" . $sql . "' was faulty!<br>" . $conn->error;
