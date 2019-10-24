@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>INSERT</title>
+        <title>Indsætter ny bruger</title>
     </head>
     <body>
         <?php
@@ -23,11 +23,14 @@ and open the template in the editor.
             die("Connection failed: " . $conn->connect_error);
         }
         
+        $sql = "INSERT INTO ShoeSize (name, email, dateOfBirth, shoeSize)
+               VALUES (?, ?, ?, ?)";
+        
         // Prepared statement
-        $stmt = $conn->prepare("INSERT INTO ShoeSize (name, email, age, shoeSize)
-               VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare($sql);
         // Bind to values from form. The form posts the names of the inputs.
-        $stmt->bind_param("ssii", $_POST['name'], $_POST['email'], $_POST['age'], $_POST['shoeSize']);
+        // Remember to the change the values below if you change the datatype.
+        $stmt->bind_param("sssi", $_POST['name'], $_POST['email'], $_POST['dateOfBirth'], $_POST['shoeSize']);
         
         // Execute statement and check if it was successful
         if ($stmt->execute()) {

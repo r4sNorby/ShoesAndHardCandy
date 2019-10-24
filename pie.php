@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Lagkagediagram</title>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart']});
@@ -110,7 +110,6 @@ if (mysqli_num_rows($result) > 0) {
                 chart.draw(data, options);
             }
         </script>
-
     </head>
     <body>
         <div>

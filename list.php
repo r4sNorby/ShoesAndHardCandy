@@ -35,7 +35,7 @@ and open the template in the editor.
                     <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
                     <?php
                     // Echo all values
-                    echo "id: " . $row["id"] . " - Navn: " . $row["name"] . " - Email: " . $row["email"] . " - Age: " . $row["age"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
+                    echo "id: " . $row["id"] . " - Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
                 }
                 ?>
                 <!-- Submit button for deleting rows -->
@@ -43,7 +43,7 @@ and open the template in the editor.
                 <?php
             } else {
                 // If empty
-                echo "SORRY! Please contact your administrator. Soooo... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
+                echo "SORRY! Please contact your administrator. Just between you and me... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
             }
             ?>
         </form>

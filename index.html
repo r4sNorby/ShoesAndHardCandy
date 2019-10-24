@@ -14,10 +14,10 @@ and open the template in the editor.
         <h1>Sk<a href="googCharts.php">o</a>størrelse</h1>
         <!-- Form for Insert.php -->
         <form action="insert.php"  method="post">
-            Navn: <input type="text" name="name" placeholder="Navn"><br>
-            Email: <input type="text" name="email" placeholder="Email"><br>
-            Alder: <input type="text" name="age" placeholder="Alder"><br>
-            Skostørrelse:  <input type="text" name="shoeSize" placeholder="Skostørrelse"><br>
+            Navn: <input type="text" name="name" placeholder="Navn" required><br>
+            Email: <input type="text" name="email" placeholder="Email" required><br>
+            Fødselsdag: <input type="date" name="dateOfBirth" required><br>
+            Skostørrelse:  <input type="text" name="shoeSize" placeholder="Skostørrelse" required><br>
             <input type="submit" name="delete" value="Submit">
         </form>
         
