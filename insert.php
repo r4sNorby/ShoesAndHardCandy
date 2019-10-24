@@ -32,6 +32,8 @@ and open the template in the editor.
         // Remember to the change the values below if you change the datatype.
         $stmt->bind_param("sssi", $_POST['name'], $_POST['email'], $_POST['dateOfBirth'], $_POST['shoeSize']);
         
+        $check = "SELECT FROM ShoeSize WHERE name = $name = ";
+        if()
         // Execute statement and check if it was successful
         if ($stmt->execute()) {
             // !!Redirect to list.php after submitting form!!

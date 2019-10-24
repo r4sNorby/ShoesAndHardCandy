@@ -101,9 +101,9 @@ if (mysqli_num_rows($result) > 0) {
                 ]);
                 // Google Charts options
                 var options = {//'title':'Skostørrelse',
-                    'colors': ['#dd0000', '#00dd00', getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
+                    'colors': [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
                     is3D: true,
-                    pieSliceText: 'value-and-percentage',
+                    pieSliceText: 'percentage',
                     'width': 1200,
                     'height': 550};
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
