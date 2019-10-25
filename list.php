@@ -48,7 +48,7 @@ and open the template in the editor.
             ?>
         </form>
 
-        <a href="index.html">Home</a>
+        <a href="shoes.html">Home</a>
         <a href="list.php">List</a>
         <a href="graph.php">Graph</a>
     </body>

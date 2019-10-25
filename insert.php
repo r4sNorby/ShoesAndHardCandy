@@ -62,6 +62,6 @@ and open the template in the editor.
         <br>
 
         <p>Return to the front page</p>
-        <a href="index.html">Home</a>
+        <a href="shoes.html">Home</a>
     </body>
 </html>
