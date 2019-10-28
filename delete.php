@@ -15,6 +15,8 @@ and open the template in the editor.
         $username = "xran39.skp-dp";
         $password = "k452ppy3";
         $db_name = "xran39_skp_dp_sde_dk";
+        
+        $setId = filter_input(INPUT_POST, 'id');
 
         $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -27,8 +29,8 @@ and open the template in the editor.
         //    echo $id[0];
         //}
         // Was the delete button pressed while a checkbox was checked?
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
+        if (isset($setId)) {
+            $id = $setId;
 
             // For each id that was checked, delete that row
             for ($i = 0; $i < count($id); $i++) {

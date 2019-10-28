@@ -12,21 +12,23 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="shoes.css">
     </head>
     <body>
-        <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>
-        <!-- Form for Insert.php -->
-        <form action="insert.php"  method="post">
-            Navn: <input type="text" name="name" placeholder="Navn" required><br>
-            Email: <input type="email" name="email" placeholder="Email" required><br>
-            Fødselsdag: <input type="date" name="dateOfBirth" required><br>
-            Skostørrelse:  <input type="number" min="0" max="55" name="shoeSize" placeholder="Sko" required><br>
-            <input type="submit" name="delete" value="Submit">
-        </form>
-        
-        <a href="shoes.html">Home</a>
-        <a href="list.php">List</a>
-        <a href="graph.php">Graph</a>
-        
-        <div>
+        <div class="sidebar">
+            <a href="shoes.html">Home</a>
+            <a href="list.php">List</a>
+            <a href="graph.php">Graph</a>
+            <a href="pie.php">Pie Chart</a>
+        </div>
+
+        <div class="main">
+            <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>
+            <!-- Form for Insert.php -->
+            <form action="insert.php"  method="post">
+                Navn: <input type="text" name="name" placeholder="Navn" required><br>
+                Email: <input type="email" name="email" placeholder="Email" required><br>
+                Fødselsdag: <input type="date" name="dateOfBirth" required><br>
+                Skostørrelse:  <input type="number" min="0" max="55" name="shoeSize" placeholder="40" required><br>
+                <input type="submit" name="delete" value="Submit">
+            </form>
             <br>
             <p>Test of the <a href="insert_redirect.html">redirect</a> function</p>
         </div>

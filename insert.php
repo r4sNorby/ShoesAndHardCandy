@@ -16,10 +16,10 @@ and open the template in the editor.
         $password = "k452ppy3";
         $db_name = "xran39_skp_dp_sde_dk";
         
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $dateOfBirth = $_POST['dateOfBirth'];
-        $shoeSize = $_POST['shoeSize'];
+        $name = filter_input(INPUT_POST, 'name');
+        $email = filter_input(INPUT_POST, 'email');
+        $dateOfBirth = filter_input(INPUT_POST, 'dateOfBirth');
+        $shoeSize = filter_input(INPUT_POST, 'shoeSize');
 
 
         $conn = new mysqli($servername, $username, $password, $db_name);
