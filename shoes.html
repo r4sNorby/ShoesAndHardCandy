@@ -9,17 +9,28 @@ and open the template in the editor.
         <title>Skostørrelse</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mainStyle.css">
         <link rel="stylesheet" type="text/css" href="shoes.css">
+        <script src="sidebar.js"></script>
     </head>
     <body>
-        <div class="sidebar">
-            <a href="shoes.html">Home</a>
-            <a href="list.php">List</a>
-            <a href="graph.php">Graph</a>
-            <a href="pie.php">Pie Chart</a>
-        </div>
+        <header>
+            <button class="openbtn" onclick="toggle()">☰ Udvid menu</button>
+            <a>Home</a>
+            <a>Skostørrelser</a>
+            <a>Birger Bolcher</a>
+        </header>
 
-        <div class="main">
+        <aside id="sidebar" class="sidebar">
+            <!-- Sidebar button -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="shoes.html">Indsæt</a>
+            <a href="list.php">Liste</a>
+            <a href="graph.php">Graf</a>
+            <a href="pie.php">Lagkage</a>
+        </aside>
+
+        <div id="main">
             <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>
             <!-- Form for Insert.php -->
             <form action="insert.php"  method="post">
@@ -27,10 +38,14 @@ and open the template in the editor.
                 Email: <input type="email" name="email" placeholder="Email" required><br>
                 Fødselsdag: <input type="date" name="dateOfBirth" required><br>
                 Skostørrelse:  <input type="number" min="0" max="55" name="shoeSize" placeholder="40" required><br>
-                <input type="submit" name="delete" value="Submit">
+                <input type="submit" name="delete" value="Indsæt">
             </form>
             <br>
             <p>Test of the <a href="insert_redirect.html">redirect</a> function</p>
         </div>
+        
+        <footer>
+            
+        </footer>
     </body>
 </html>
