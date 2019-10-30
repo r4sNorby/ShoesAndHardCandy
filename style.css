@@ -12,12 +12,14 @@ body {
     margin: 0;
 }
 
+/* "O"-link in the H1 "Skostørrelser" */
 #o {
     text-decoration: none;
     color: black;
     cursor: default;
 }
 
+/* Sidebar */
 .sidebar {
     height: 100%; /* Full height sidebar */
     width: 0px;
@@ -31,6 +33,7 @@ body {
     padding-top: 60px;
 }
 
+/* Sidebar Links */
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -40,10 +43,14 @@ body {
   transition: 0.3s;
 }
 
+
+/* Sidebar Links Hover */
 .sidebar a:hover {
     color: #f1f1f1;
 }
 
+
+/* Move the sidebar and closebtn when clicking the X */
 .sidebar .closebtn {
     position: absolute;
     top: 0;
@@ -52,7 +59,8 @@ body {
     margin-left: 50px;
 }
 
-.openbtn {
+/* The toggle button */
+.togglebtn {
     height: 50px;
     width: 200px;
     cursor: pointer;
@@ -61,12 +69,15 @@ body {
     font-size: 20px;
     padding: 10px 15px;
     background-color: #111;
+    outline: none;
 }
 
-openbtn:hover {
+/* Toggle Hover */
+togglebtn:hover {
     background-color: #444;
 }
 
+/* Header */
 header {
     height: 50px;
     width: 100%;
@@ -90,6 +101,8 @@ style of the sidenav (less padding and a smaller font size) */
 }
 
 /* shoes.html */
+
+/* Form Input */
 input[type=text], [type=email], [type=date], [type=number] {
     border: none;
     border-bottom: 1px solid;

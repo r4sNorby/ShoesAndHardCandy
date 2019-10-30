@@ -9,13 +9,13 @@ and open the template in the editor.
         <title>Skostørrelse</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="mainStyle.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="shoes.css">
         <script src="sidebar.js"></script>
     </head>
     <body>
         <header>
-            <button class="openbtn" onclick="toggle()">☰ Udvid menu</button>
+            <button class="togglebtn" onclick="toggle()">☰ Udvid menu</button>
             <a>Home</a>
             <a>Skostørrelser</a>
             <a>Birger Bolcher</a>
@@ -32,12 +32,17 @@ and open the template in the editor.
 
         <div id="main">
             <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>
+            
             <!-- Form for Insert.php -->
             <form action="insert.php"  method="post">
-                Navn: <input type="text" name="name" placeholder="Navn" required><br>
-                Email: <input type="email" name="email" placeholder="Email" required><br>
-                Fødselsdag: <input type="date" name="dateOfBirth" required><br>
-                Skostørrelse:  <input type="number" min="0" max="55" name="shoeSize" placeholder="40" required><br>
+                <label>Navn: </label>
+                <input type="text" name="name" placeholder="Navn" required><br>
+                <label>Email: </label>
+                <input type="email" name="email" placeholder="Email" required><br>
+                <label>Fødselsdag: </label>
+                <input type="date" name="dateOfBirth" required><br>
+                <label>Skostørrelse: </label>
+                <input type="number" min="0" max="55" name="shoeSize" placeholder="40" required><br>
                 <input type="submit" name="delete" value="Indsæt">
             </form>
             <br>
