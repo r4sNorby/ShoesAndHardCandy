@@ -21,7 +21,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    max-height: 100%; /* Full height sidebar */
+    max-height: 100%;
     width: 60px;
     position: fixed;
     z-index: 1;
@@ -35,8 +35,8 @@ body {
     padding-bottom: 60px;
 }
 
-sidebar {
-    background-color: #333;
+.sidebar {
+    background-color: #444;
 }
 
 /* Sidebar Links */
@@ -83,7 +83,7 @@ sidebar {
 }
 
 /* Toggle Hover */
-togglebtn:hover {
+.togglebtn:hover {
     background-color: #444;
 }
 
@@ -115,7 +115,7 @@ header a {
 }
 
 header a:hover{
-    color: #f1f1f1;
+    color: #cc0000;
 }
 
 /* Style page content - use this if you want to push the page
