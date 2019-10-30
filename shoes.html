@@ -10,29 +10,33 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="shoes.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="sidebar.js"></script>
     </head>
     <body>
         <header>
+                <!-- Sidebar button -->
             <button class="togglebtn" onclick="toggle()">☰ Udvid menu</button>
-            <a>Home</a>
-            <a>Skostørrelser</a>
-            <a>Birger Bolcher</a>
+            
+            <!-- Header Buttons-->
+            <div class='headerButtons'>
+                <a href="index.html">Hjem</a>
+                <a href="shoes.html">Skostørrelser</a>
+                <a href="hardCandy.html">Birger Bolcher</a>
+            </div>
         </header>
 
         <aside id="sidebar" class="sidebar">
-            <!-- Sidebar button -->
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="shoes.html">Indsæt</a>
-            <a href="list.php">Liste</a>
-            <a href="graph.php">Graf</a>
-            <a href="pie.php">Lagkage</a>
+            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+            <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+            <a href="list.php"><i class="material-icons">list</i> Brugerliste</a>
+            <a href="graph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+            <a href="pie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
         </aside>
 
         <div id="main">
             <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>
-            
+
             <!-- Form for Insert.php -->
             <form action="insert.php"  method="post">
                 <label>Navn: </label>
@@ -48,9 +52,21 @@ and open the template in the editor.
             <br>
             <p>Test of the <a href="insert_redirect.html">redirect</a> function</p>
         </div>
-        
+
         <footer>
-            
+            <div class="footerTop">
+                <nav class="footerButtons">
+                    <a class="footerLink" href="index.html">HJEM</a>
+                    <span>|</span>
+                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
+                    <span>|</span>
+                    <a class="footerLink" href="hardCandy.html">BIRGER BOLCHER</a>
+                </nav>
+            </div>
+
+            <div class="footerBottom">
+                <span>&COPY; 2019 Rasmus Nørby</span>
+            </div>
         </footer>
     </body>
 </html>

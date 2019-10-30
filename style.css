@@ -8,39 +8,47 @@ and open the template in the editor.
     Author     : rasm947f
 */
 
-body {
-    margin: 0;
+html {
+    height: 100%;
 }
 
-/* "O"-link in the H1 "Skostørrelser" */
-#o {
-    text-decoration: none;
-    color: black;
-    cursor: default;
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Sidebar */
 .sidebar {
-    height: 100%; /* Full height sidebar */
-    width: 0px;
+    max-height: 100%; /* Full height sidebar */
+    width: 60px;
     position: fixed;
     z-index: 1;
     top: 50px;
+    bottom: 60px;
     left: 0;
-    background-color: #111;
+    background-color: #333;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+sidebar {
+    background-color: #333;
 }
 
 /* Sidebar Links */
 .sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    /* Keep the text from wrapping*/
+    white-space: nowrap;
 }
 
 
@@ -62,14 +70,16 @@ body {
 /* The toggle button */
 .togglebtn {
     height: 50px;
-    width: 200px;
+    width: 220px;
     cursor: pointer;
     color: white;
     border: none;
     font-size: 20px;
     padding: 10px 15px;
-    background-color: #111;
+    padding-left: 0;
+    background-color: #333;
     outline: none;
+    overflow: hidden;
 }
 
 /* Toggle Hover */
@@ -77,20 +87,47 @@ togglebtn:hover {
     background-color: #444;
 }
 
+.flex-container {
+    height: 100%;
+
+}
+
 /* Header */
 header {
     height: 50px;
     width: 100%;
-    background-color: #111;
-    color: white;
+    background-color: #333;
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.headerButtons {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+}
+
+header a:hover{
+    color: #f1f1f1;
 }
 
 /* Style page content - use this if you want to push the page
 content to the right when you open the side navigation */
 #main {
-  transition: margin-left .5s; /* If you want a transition effect */
-  padding: 20px;
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 /* On smaller screens, where height is less than 450px, change the 
@@ -100,6 +137,41 @@ style of the sidenav (less padding and a smaller font size) */
     .sidebar a {font-size: 18px;}
 }
 
+
+/*Footer*/
+
+footer{
+    background-color: #333;
+    text-align: center;
+    color: #818181;
+    height: 60px;
+}
+
+.footerTop{
+    width: auto;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.footerButtons{
+    padding: 5px;
+}
+
+.footerLink{
+    font-weight: bold;
+    color: #818181;
+}
+
+.footerLink:hover{
+    color: #f1f1f1;
+}
+
+.footerBottom{
+    font-size: 14px;
+    padding: 4px;
+}
+
+
 /* shoes.html */
 
 /* Form Input */
@@ -107,4 +179,15 @@ input[type=text], [type=email], [type=date], [type=number] {
     border: none;
     border-bottom: 1px solid;
     outline: none;
+}
+
+/* "O"-link in the H1 "Skostørrelser" */
+#o {
+    text-decoration: none;
+    color: black;
+    cursor: default;
+}
+
+.material-icons {
+    vertical-align: text-top;
 }

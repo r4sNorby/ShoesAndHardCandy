@@ -22,21 +22,12 @@ function closeNav() {
 
 function toggle() {
     var x = document.getElementById("sidebar");
-    var y = document.getElementById("main");
-    if (x.style.width === "200px") {
-        x.style.width = "0px";
-        y.style.marginLeft = "0px";
+    //var y = document.getElementById("main");
+    if (x.style.width === "220px") {
+        x.style.width = "60px";
+        //y.style.marginLeft = "0px";
     } else {
-        x.style.width = "200px";
-        y.style.marginLeft = "200px";
-    }
-}
-
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
+        x.style.width = "220px";
+        //y.style.marginLeft = "200px";
     }
 }
