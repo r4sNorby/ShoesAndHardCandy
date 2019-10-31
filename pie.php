@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT shoeSize FROM ShoeSize ORDER BY shoeSize DESC";
+$sql = "SELECT shoeSize FROM 1_ShoeSize ORDER BY shoeSize DESC";
 $result = $conn->query($sql);
 ?>
 <!doctype html>

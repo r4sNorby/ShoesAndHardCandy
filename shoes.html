@@ -15,14 +15,28 @@ and open the template in the editor.
     </head>
     <body>
         <header>
+            <div class="topnav" id="myTopnav">
                 <!-- Sidebar button -->
-            <button class="togglebtn" onclick="toggle()">☰ Udvid menu</button>
-            
-            <!-- Header Buttons-->
-            <div class='headerButtons'>
-                <a href="index.html">Hjem</a>
-                <a href="shoes.html">Skostørrelser</a>
-                <a href="hardCandy.html">Birger Bolcher</a>
+                <div class="togglebtn" onclick="toggle()">
+                    <a>☰ Udvid menu</a>
+                </div>
+
+                <!-- Header Buttons-->
+                <div class='headerButtons'>
+                    <a class="buttons" href="index.html">Hjem</a>
+                    <a class="buttons" href="shoes.html">Skostørrelser</a>
+                    <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
+                    <div class="dropbtn">
+                        <div class="droptxt">
+                            <a class="droptxt">☰ Projekter</a>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="index.html">Hjem</a>
+                            <a href="shoes.html">Skostørrelser</a>
+                            <a href="hardCandy.html">Birger Bolcher</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 

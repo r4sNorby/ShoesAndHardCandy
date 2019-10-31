@@ -25,7 +25,7 @@ and open the template in the editor.
         <!-- Delete-form with checkboxes for deleting rows -->
         <form action="delete.php" method="post">
             <?php
-            $sql = "SELECT * FROM ShoeSize ORDER BY id ASC";
+            $sql = "SELECT * FROM 1_ShoeSize ORDER BY id ASC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 //  Return results as an associative array and do stuff as long as there's data in it.

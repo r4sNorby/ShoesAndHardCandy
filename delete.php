@@ -37,7 +37,7 @@ and open the template in the editor.
                 $del_id = $id[$i];
 
                 // Prepared statement
-                $stmt = $conn->prepare("DELETE FROM ShoeSize WHERE id = ?");
+                $stmt = $conn->prepare("DELETE FROM 1_ShoeSize WHERE id = ?");
 
                 // Bind to values from form
                 $stmt->bind_param(i, $del_id);

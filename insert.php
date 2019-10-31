@@ -27,8 +27,9 @@ and open the template in the editor.
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
-        $sql = "INSERT INTO ShoeSize (name, email, dateOfBirth, shoeSize)
+        
+        // 1_ShoeSize fordi det er efter første hovedforløb
+        $sql = "INSERT INTO 1_ShoeSize (name, email, dateOfBirth, shoeSize)
                VALUES (?, ?, ?, ?)";
 
         // Prepared statement
@@ -37,7 +38,7 @@ and open the template in the editor.
         // Remember to the change the values below if you change the datatype.
         $stmt->bind_param("sssi", $name, $email, $dateOfBirth, $shoeSize);
 
-        $check = "SELECT * FROM ShoeSize WHERE name = '$name' AND email = '$email' AND shoeSize = '$shoeSize'";
+        $check = "SELECT * FROM 1_ShoeSize WHERE name = '$name' AND email = '$email' AND shoeSize = '$shoeSize'";
         $result = $conn->query($check);
         // Print the result
         //print_r($result);
