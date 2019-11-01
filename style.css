@@ -21,8 +21,10 @@ body {
 
 /* Sidebar */
 .sidebar {
+    width: 45px;
+    display: flex;
     flex: 1;
-    width: 60px;
+    flex-direction: column;
     position: fixed;
     z-index: 1;
     top: 50px;
@@ -37,7 +39,7 @@ body {
 
 /* Sidebar Links */
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 15px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -66,7 +68,7 @@ body {
 /* The toggle button */
 .togglebtn {
     height: 40px;
-    width: 215px;
+    width: 185px;
     cursor: pointer;
     color: white;
     border: none;
@@ -126,10 +128,6 @@ header {
     text-decoration: none;
 }
 
-.headerButtons a:hover{
-    color: #cc0000;
-}
-
 .buttons {
     margin-left: 20px;
     margin-right: 20px;
@@ -138,7 +136,7 @@ header {
 
 .dropbtn {
     height: 50px;
-    width: 150px;
+    width: 135px;
     padding-left: 5px;
     padding-right: 5px;
     position: relative;
@@ -154,12 +152,17 @@ header {
 
 .dropdown-content {
     display: none;
-    margin-top: 59px;
+    width: 115px;
+    font-size: 18px;
+    margin-top: 66px;
     position: absolute;
     background-color: #444;
-    width: 120px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     z-index: 1;
+}
+
+.dropdown-content a:hover{
+    color: #cc0000;
 }
 
 .dropbtn:hover .dropdown-content {
@@ -177,18 +180,6 @@ content to the right when you open the side navigation */
     align-items: center;
     flex: 1;
 }
-
-/* On smaller screens, where height is less than 450px, change the 
-style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-width: 650px) {
-    .sidebar {padding-top: 15px; width: 40px;}
-    
-    .sidebar a {padding-left: 10px;}
-
-    .buttons {display: none;}
-    .dropbtn {display: flex;}
-}
-
 
 /*Footer*/
 
@@ -242,4 +233,25 @@ input[type=text], [type=email], [type=date], [type=number] {
 
 .material-icons {
     vertical-align: text-top;
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the 
+style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 650px) {
+    .sidebar {padding-top: 15px; width: 40px;}
+    .sidebar a {font-size: 20px;}
+    .sidebar a i {font-size: 20px;}
+
+    .togglebtn {width: 160px;}
+
+    .buttons {display: none;}
+    .dropbtn {display: flex;}
+
+    .footerTop {font-size: 12px;}
+}
+
+@media screen and (min-width: 650px) {
+    .sidebar {padding-top: 60px; width: 45px;}
 }
