@@ -44,7 +44,6 @@ and open the template in the editor.
         //print_r($result);
         
         if ($result->num_rows < 1) {
-            echo "Success";
             // Execute statement and check if it was successful
             if ($stmt->execute()) {
                 // !!Redirect to list.php after submitting form!!

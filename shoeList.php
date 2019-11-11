@@ -8,6 +8,9 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Skostørrelseliste</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="sidebar.js"></script>
     </head>
     <body>
         <?php
@@ -22,34 +25,85 @@ and open the template in the editor.
             die("Connection failed: " . $conn->connect_error);
         }
         ?>
-        <!-- Delete-form with checkboxes for deleting rows -->
-        <form action="shoeDelete.php" method="post">
-            <?php
-            $sql = "SELECT * FROM 1_ShoeSize ORDER BY id ASC";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                //  Return results as an associative array and do stuff as long as there's data in it.
-                while ($row = $result->fetch_assoc()) {
+        <header>
+            <div class="topnav">
+                <!-- Sidebar button -->
+                <div class="togglebtn" onclick="toggle()">
+                    <a>☰ Udvid menu</a>
+                </div>
+
+                <!-- Header Buttons-->
+                <div class='headerButtons'>
+                    <a class="buttons" href="index.html">Hjem</a>
+                    <a class="buttons" href="shoes.html">Skostørrelser</a>
+                    <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
+                    <div class="dropbtn">
+                        <div class="droptxt">
+                            <a class="droptxt">☰ Projekter</a>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="index.html">Hjem</a>
+                            <a href="shoes.html">Skostørrelser</a>
+                            <a href="hardCandy.html">Birger Bolcher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebarbuttons">
+                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
+                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+            </div>
+        </aside>
+
+        <div id="main">
+
+            <!-- Delete-form with checkboxes for deleting rows -->
+            <form action="shoeDelete.php" method="post">
+                <?php
+                $sql = "SELECT * FROM 1_ShoeSize ORDER BY id ASC";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    //  Return results as an associative array and do stuff as long as there's data in it.
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+                        <!-- Adding a checkbox before each row -->
+                        <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
+                        <?php
+                        // Echo all values
+                        echo "Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
+                    }
                     ?>
-                    <!-- Adding a checkbox before each row -->
-                    <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
+                    <!-- Submit button for deleting rows -->
+                    <input type="submit" name="delete" value="Delete">
                     <?php
-                    // Echo all values
-                    echo "Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
+                } else {
+                    // If empty
+                    echo "SORRY! Please contact your administrator. Just between you and me... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
                 }
                 ?>
-                <!-- Submit button for deleting rows -->
-                <input type="submit" name="delete" value="Delete">
-                <?php
-            } else {
-                // If empty
-                echo "SORRY! Please contact your administrator. Just between you and me... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
-            }
-            ?>
-        </form>
+            </form>
+        </div>
 
-        <a href="shoes.html">Home</a>
-        <a href="shoeList.php">List</a>
-        <a href="shoeGraph.php">Graph</a>
+        <footer>
+            <div class="footerTop">
+                <nav class="footerButtons">
+                    <a class="footerLink" href="index.html">HJEM</a>
+                    <span>|</span>
+                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
+                    <span>|</span>
+                    <a class="footerLink" href="hardCandy.html">BIRGER BOLCHER</a>
+                </nav>
+            </div>
+
+            <div class="footerBottom">
+                <span>&COPY; 2019 Rasmus Nørby</span>
+            </div>
+        </footer>
     </body>
 </html>

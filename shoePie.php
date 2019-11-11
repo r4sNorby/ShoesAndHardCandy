@@ -18,9 +18,9 @@ $result = $conn->query($sql);
     <head>
         <meta charset="UTF-8">
         <title>Lagkagediagram</title>
-        <script src="sidebar.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="sidebar.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart']});
@@ -102,8 +102,8 @@ if (mysqli_num_rows($result) > 0) {
                     'colors': [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
                     is3D: true,
                     pieSliceText: 'percentage',
-                    'width': 1200,
-                    'height': 550};
+                    'width': 700,
+                    'height': 500};
                 var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
                 chart.draw(data, options);
             }
@@ -138,19 +138,18 @@ if (mysqli_num_rows($result) > 0) {
         </header>
 
         <aside id="sidebar" class="sidebar">
-            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-            <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
-            <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-            <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-            <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+            <div class="sidebarbuttons">
+                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
+                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+            </div>
+            <div class="sidebarBottom"></div>
         </aside>
 
         <div id="main">
             <h1>Hyppighed over skostørrelser</h1>
-
-            <a href="shoes.html">Home</a>
-            <a href="shpeList.php">List</a>
-            <a href="shoeGraph.php">Graph</a>
 
             <div id="pie_div"></div>
         </div>

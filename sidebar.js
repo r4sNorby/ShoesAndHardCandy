@@ -22,8 +22,9 @@ function closeNav() {
 
 function toggle() {
     var x = document.getElementById("sidebar");
+    var y = document.getElementById("sidebarbuttons");
 
-    var y = window.matchMedia("(max-width: 650px)");
+    var z = window.matchMedia("(max-width: 650px)");
     
     // For testing
     /*if (y.matches) {
@@ -32,23 +33,29 @@ function toggle() {
         document.body.style.backgroundColor = "pink";
     }*/
 
-    if (y.matches) {
+    if (z.matches) {
         if (x.style.width === "40px") {
             x.style.width = "175px";
+            y.style.width = "175px";
         } else if (x.style.width === "175px") {
             x.style.width = "40px";
+            y.style.width = "40px";
         } else {
             x.style.width = "175px";
+            y.style.width = "175px";
         }
     } else {
         if (x.style.width === "45px") {
             x.style.width = "200px";
-            //y.style.marginLeft = "0px";
+            y.style.width = "200px";
+            //z.style.marginLeft = "0px";
         } else if (x.style.width === "200px") {
             x.style.width = "45px";
-            //y.style.marginLeft = "200px";
+            y.style.width = "45px";
+            //z.style.marginLeft = "200px";
         } else {
             x.style.width = "200px";
+            y.style.width = "200px";
         }
     }
 }

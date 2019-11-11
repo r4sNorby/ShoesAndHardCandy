@@ -21,29 +21,11 @@ body {
 
 /* Sidebar */
 .sidebar {
-    height: 100%;
+    height: 100vh;
     width: 45px;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    position: absolute;
-    z-index: 1;
-    left: 0;
+    position: fixed;
     background-color: #444;
-    overflow-x: hidden;
     transition: 0.5s;
-}
-
-/* Sidebar Links */
-.sidebar a {
-    padding: 8px 8px 8px 15px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    /* Keep the text from wrapping*/
-    white-space: nowrap;
 }
 
 
@@ -53,9 +35,30 @@ body {
 }
 
 .sidebarbuttons {
+    width: 45px;
+    display: flex;
+    flex: 1;
+    position: absolute;
+    flex-direction: column;
+    z-index: 1;
+    left: 0;
+    background-color: #444;
+    overflow-x: hidden;
+    transition: 0.5s;
     padding-top: 60px;
 }
 
+/* Sidebar Links */
+.sidebarbuttons a {
+    padding: 8px 8px 8px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    /* Keep the text from wrapping*/
+    white-space: nowrap;
+}
 
 /* Move the sidebar and closebtn when clicking the X */
 .sidebar .closebtn {
@@ -246,6 +249,10 @@ style of the sidenav (less padding and a smaller font size) */
     .sidebar {width: 40px;}
     .sidebar a {font-size: 20px;}
     .sidebar a i {font-size: 20px;}
+    
+    .sidebarbuttons {width: 40px;}
+    .sidebarbuttons a {font-size: 20px;}
+    .sidebarbuttons a i {font-size: 20px;}
 
     .togglebtn {width: 160px;}
 
@@ -253,6 +260,8 @@ style of the sidenav (less padding and a smaller font size) */
     .dropbtn {display: flex;}
 
     .footerTop {font-size: 12px;}
+    
+    /*#graph_div {display: none;}*/
 }
 
 @media screen and (min-width: 650px) {
