@@ -35,7 +35,7 @@ and open the template in the editor.
                     <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
                     <?php
                     // Echo all values
-                    echo "id: " . $row["id"] . " - Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
+                    echo "Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
                 }
                 ?>
                 <!-- Submit button for deleting rows -->

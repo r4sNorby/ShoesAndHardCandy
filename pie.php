@@ -18,6 +18,9 @@ $result = $conn->query($sql);
     <head>
         <meta charset="UTF-8">
         <title>Lagkagediagram</title>
+        <script src="sidebar.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart']});
@@ -63,7 +66,7 @@ if (mysqli_num_rows($result) > 0) {
     }
     //echo "Values:";
     //print_r($values);
-    // actually count the amount of eah shoesize and put them
+    // actually count the amount of each shoesize and put them
     // into a new array called percent
     $percent = array_count_values($values);
 
@@ -107,15 +110,65 @@ if (mysqli_num_rows($result) > 0) {
         </script>
     </head>
     <body>
-        <div>
+
+        <header>
+            <div class="topnav">
+                <!-- Sidebar button -->
+                <div class="togglebtn" onclick="toggle()">
+                    <a>☰ Udvid menu</a>
+                </div>
+
+                <!-- Header Buttons-->
+                <div class='headerButtons'>
+                    <a class="buttons" href="index.html">Hjem</a>
+                    <a class="buttons" href="shoes.html">Skostørrelser</a>
+                    <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
+                    <div class="dropbtn">
+                        <div class="droptxt">
+                            <a class="droptxt">☰ Projekter</a>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="index.html">Hjem</a>
+                            <a href="shoes.html">Skostørrelser</a>
+                            <a href="hardCandy.html">Birger Bolcher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <aside id="sidebar" class="sidebar">
+            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+            <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+            <a href="list.php"><i class="material-icons">list</i> Brugerliste</a>
+            <a href="graph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+            <a href="pie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+        </aside>
+
+        <div id="main">
             <h1>Hyppighed over skostørrelser</h1>
+
+            <a href="shoes.html">Home</a>
+            <a href="list.php">List</a>
+            <a href="graph.php">Graph</a>
+
+            <div id="pie_div"></div>
         </div>
 
+        <footer>
+            <div class="footerTop">
+                <nav class="footerButtons">
+                    <a class="footerLink" href="index.html">HJEM</a>
+                    <span>|</span>
+                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
+                    <span>|</span>
+                    <a class="footerLink" href="hardCandy.html">BIRGER BOLCHER</a>
+                </nav>
+            </div>
 
-        <a href="shoes.html">Home</a>
-        <a href="list.php">List</a>
-        <a href="graph.php">Graph</a>
-
-        <div id="pie_div"></div>
+            <div class="footerBottom">
+                <span>&COPY; 2019 Rasmus Nørby</span>
+            </div>
+        </footer>
     </body>
 </html>

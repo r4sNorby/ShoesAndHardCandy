@@ -21,20 +21,18 @@ body {
 
 /* Sidebar */
 .sidebar {
+    height: 100%;
     width: 45px;
     display: flex;
     flex: 1;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    top: 50px;
-    bottom: 60px;
     left: 0;
     background-color: #444;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    padding-bottom: 60px;
 }
 
 /* Sidebar Links */
@@ -105,6 +103,7 @@ body {
 
 /* Header */
 header {
+    z-index: 2;
 }
 
 .topnav {
@@ -188,6 +187,7 @@ footer{
     text-align: center;
     color: #818181;
     height: 60px;
+    z-index: 2;
 }
 
 .footerTop{
@@ -240,7 +240,7 @@ input[type=text], [type=email], [type=date], [type=number] {
 /* On smaller screens, where height is less than 450px, change the 
 style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-width: 650px) {
-    .sidebar {padding-top: 15px; width: 40px;}
+    .sidebar {width: 40px;}
     .sidebar a {font-size: 20px;}
     .sidebar a i {font-size: 20px;}
 
@@ -253,5 +253,5 @@ style of the sidenav (less padding and a smaller font size) */
 }
 
 @media screen and (min-width: 650px) {
-    .sidebar {padding-top: 60px; width: 45px;}
+    .sidebar {width: 45px;}
 }
