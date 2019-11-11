@@ -52,12 +52,15 @@ and open the template in the editor.
         } else {
             echo "No checkboxes were checked!";
         }
+        ?>
+        
+        <br>
+        <p>Return to the list</p>
+        <a href="shoeList.php">List</a><br>
+        
+        <?php
         $stmt->close();
         $conn->close();
         ?>
-        <br>
-
-        <p>Return to the list</p>
-        <a href="shoeList.php">List</a><br>
     </body>
 </html>
