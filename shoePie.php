@@ -140,17 +140,17 @@ if (mysqli_num_rows($result) > 0) {
         <aside id="sidebar" class="sidebar">
             <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
             <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
-            <a href="list.php"><i class="material-icons">list</i> Brugerliste</a>
-            <a href="graph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-            <a href="pie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+            <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
+            <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+            <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
         </aside>
 
         <div id="main">
             <h1>Hyppighed over skostørrelser</h1>
 
             <a href="shoes.html">Home</a>
-            <a href="list.php">List</a>
-            <a href="graph.php">Graph</a>
+            <a href="shpeList.php">List</a>
+            <a href="shoeGraph.php">Graph</a>
 
             <div id="pie_div"></div>
         </div>

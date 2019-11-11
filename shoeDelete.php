@@ -10,6 +10,7 @@ and open the template in the editor.
         <title>Sletter bruger</title>
     </head>
     <body>
+        
         <?php
         $servername = "localhost";
         $username = "xran39.skp-dp";
@@ -57,6 +58,6 @@ and open the template in the editor.
         <br>
 
         <p>Return to the list</p>
-        <a href="list.php">List</a>
+        <a href="shoeList.php">List</a><br>
     </body>
 </html>

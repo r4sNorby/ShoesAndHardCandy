@@ -23,7 +23,7 @@ and open the template in the editor.
         }
         ?>
         <!-- Delete-form with checkboxes for deleting rows -->
-        <form action="delete.php" method="post">
+        <form action="shoeDelete.php" method="post">
             <?php
             $sql = "SELECT * FROM 1_ShoeSize ORDER BY id ASC";
             $result = $conn->query($sql);
@@ -49,7 +49,7 @@ and open the template in the editor.
         </form>
 
         <a href="shoes.html">Home</a>
-        <a href="list.php">List</a>
-        <a href="graph.php">Graph</a>
+        <a href="shoeList.php">List</a>
+        <a href="shoeGraph.php">Graph</a>
     </body>
 </html>

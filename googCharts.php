@@ -45,8 +45,8 @@
     <body>
 
         <a href="shoes.html">Home</a>
-        <a href="list.php">List</a>
-        <a href="graph.php">Graph</a>
+        <a href="shoeList.php">List</a>
+        <a href="shoeGraph.php">Graph</a>
 
         <!--Div that will hold the pie chart-->
         <div id="chart_div"></div>
