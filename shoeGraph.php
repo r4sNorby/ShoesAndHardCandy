@@ -18,6 +18,7 @@ $result = $conn->query($sql);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Graf</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -59,9 +60,11 @@ if (mysqli_num_rows($result) > 0) {
                 ]);
                 // Options for the chart
                 var options = {'title': 'Skostørrelse',
-                    'colors': [getRandomColor(), '#228B22'],
-                    'width': 1000,
-                    'height': 500};
+                    'colors': [getRandomColor(), '#228B22']
+                    
+                    // Google Charts defaults to the size of the parent box
+                    /*'width': 1000,
+                    //'height': 500*/};
                 var chart = new google.visualization.ColumnChart(document.getElementById('graph_div'));
                 chart.draw(data, options);
             }
@@ -94,8 +97,9 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </header>
         
-        <aside id="sidebar" class="sidebar">
-            <div class="sidebarbuttons">
+        <aside>
+            <div id="sidebar" class="sidebar"></div>
+            <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
                 <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
                 <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>

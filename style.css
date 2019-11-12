@@ -21,18 +21,17 @@ body {
 
 /* Sidebar */
 .sidebar {
-    height: 100vh;
+    min-height: 100vh;
     width: 45px;
     position: fixed;
+    -webkit-backface-visibility: hidden;
+    z-index: 1;
+    left: 0;
     background-color: #444;
+    overflow-x: hidden;
     transition: 0.5s;
 }
 
-
-/* Sidebar Links Hover */
-.sidebar a:hover {
-    color: #f1f1f1;
-}
 
 .sidebarbuttons {
     width: 45px;
@@ -60,6 +59,11 @@ body {
     white-space: nowrap;
 }
 
+/* Sidebar Links Hover */
+.sidebarbuttons a:hover {
+    color: #f1f1f1;
+}
+
 /* Move the sidebar and closebtn when clicking the X */
 .sidebar .closebtn {
     position: absolute;
@@ -72,12 +76,12 @@ body {
 /* The toggle button */
 .togglebtn {
     height: 40px;
-    width: 185px;
+    width: 180px;
     cursor: pointer;
     color: white;
     border: none;
     font-size: 20px;
-    padding-left: 15px;
+    padding-left: 20px;
     padding-top: 10px;
     background-color: #333;
     outline: none;
@@ -126,11 +130,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    outline: none;
 }
 
 .headerButtons a {
     color: white;
     text-decoration: none;
+}
+
+.headerButtons a:hover {
+    color: #c8a2c8;
 }
 
 .buttons {
@@ -254,16 +263,22 @@ style of the sidenav (less padding and a smaller font size) */
     .sidebarbuttons a {font-size: 20px;}
     .sidebarbuttons a i {font-size: 20px;}
 
-    .togglebtn {width: 160px;}
+    .togglebtn {width: 155px;}
 
     .buttons {display: none;}
     .dropbtn {display: flex;}
 
     .footerTop {font-size: 12px;}
     
-    /*#graph_div {display: none;}*/
+    #graph_div {width: 200px; height: 150px}
+    #pie_div {width: 200px; height: 150px}
 }
 
 @media screen and (min-width: 650px) {
     .sidebar {width: 45px;}
+    .sidebarbuttons {width: 45px;}
+    
+    
+    #graph_div {width: 500px; height: 300px}
+    #pie_div {width: 500px; height: 300px}
 }

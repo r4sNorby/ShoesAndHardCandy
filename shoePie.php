@@ -17,6 +17,7 @@ $result = $conn->query($sql);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lagkagediagram</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -101,15 +102,26 @@ if (mysqli_num_rows($result) > 0) {
                 var options = {//'title':'Skostørrelse',
                     'colors': [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
                     is3D: true,
-                    pieSliceText: 'percentage',
-                    'width': 700,
-                    'height': 500};
+                    pieSliceText: 'percentage'
+                    // Google Charts defaults to the size of the parent box
+                    /*'width': 100%,
+                    'height': 100%*/};
                 var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
                 chart.draw(data, options);
             }
         </script>
     </head>
     <body>
+        <aside>
+            <div id="sidebar" class="sidebar"></div>
+            <div id="sidebarbuttons" class="sidebarbuttons">
+                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
+                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+            </div>
+        </aside>
 
         <header>
             <div class="topnav">
@@ -136,17 +148,6 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
             </div>
         </header>
-
-        <aside id="sidebar" class="sidebar">
-            <div class="sidebarbuttons">
-                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
-                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
-            </div>
-            <div class="sidebarBottom"></div>
-        </aside>
 
         <div id="main">
             <h1>Hyppighed over skostørrelser</h1>

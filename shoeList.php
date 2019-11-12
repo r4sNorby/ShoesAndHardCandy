@@ -7,6 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Skostørrelseliste</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -51,8 +52,9 @@ and open the template in the editor.
             </div>
         </header>
 
-        <aside id="sidebar" class="sidebar">
-            <div class="sidebarbuttons">
+        <aside>
+            <div id="sidebar" class="sidebar"></div>
+            <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
                 <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
                 <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>

@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>PIZZA!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--Load the AJAX API-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
