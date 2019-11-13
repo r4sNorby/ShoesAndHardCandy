@@ -18,7 +18,9 @@ and open the template in the editor.
         $password = "k452ppy3";
         $db_name = "xran39_skp_dp_sde_dk";
         
-        $setId = filter_input(INPUT_POST, 'id');
+        // Get the id from the form
+        //WHY DOES FILTER_INPUT NOT WORK!!!???
+        $id = $_POST['id'];
 
         $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -27,12 +29,11 @@ and open the template in the editor.
         }
 
         //Print array values
-        //foreach($id as $id){
-        //    echo $id[0];
-        //}
+        /*foreach($id as $id){
+            echo $id[0];
+        }*/
         // Was the delete button pressed while a checkbox was checked?
-        if (isset($setId)) {
-            $id = $setId;
+        if (isset($id)) {
 
             // For each id that was checked, delete that row
             for ($i = 0; $i < count($id); $i++) {
@@ -45,7 +46,7 @@ and open the template in the editor.
                 $stmt->bind_param(i, $del_id);
 
                 if ($stmt->execute()) {
-                    header('location: delete_redirect.html');
+                    header('location: shoeDelete_redirect.html');
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
@@ -53,13 +54,6 @@ and open the template in the editor.
         } else {
             echo "No checkboxes were checked!";
         }
-        ?>
-        
-        <br>
-        <p>Return to the list</p>
-        <a href="shoeList.php">List</a><br>
-        
-        <?php
         $stmt->close();
         $conn->close();
         ?>

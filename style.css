@@ -187,7 +187,7 @@ header {
 content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s; /* If you want a transition effect */
-    padding: 20px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -272,6 +272,9 @@ style of the sidenav (less padding and a smaller font size) */
     
     #graph_div {width: 200px; height: 150px}
     #pie_div {width: 200px; height: 150px}
+    
+    #main {font-size: 15px;}
+    h1 {font-size: 18px;}
 }
 
 @media screen and (min-width: 650px) {
@@ -279,6 +282,23 @@ style of the sidenav (less padding and a smaller font size) */
     .sidebarbuttons {width: 45px;}
     
     
-    #graph_div {width: 500px; height: 300px}
-    #pie_div {width: 500px; height: 300px}
+    /*#graph_div {width: 1000px; height: 400px}
+    #pie_div {width: 1000px; height: 400px}*/
+}
+
+#graph_div {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#pie_div {
+    /*height: 400px;*/
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-self: center;
 }
