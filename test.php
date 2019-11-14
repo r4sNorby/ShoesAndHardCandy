@@ -11,9 +11,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="test.php" method="POST">
-            <input type="submit" name="all" value="Rød">
-        </form>
         <?php
         $servername = "localhost";
         $username = "xran39.skp-dp";
@@ -21,28 +18,38 @@ and open the template in the editor.
         $db_name = "xran39_skp_dp_sde_dk";
 
         $conn = new mysqli($servername, $username, $password, $db_name);
+        // Charset doesn't always transfer properly from database to php
+        $conn->set_charset("utf8");
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        // Charset doesn't always transfer properly from database to php
-        $conn->set_charset("utf8");
+        ?>
+        <form action="candyInsert.php" method="post">
+            <label>Farve: </label>
+            <select  name="color" placeholder="Farve" required>
+                <?php
+                  $sql = "SELECT * FROM 1_color ";
+                  $result = $conn->query($sql);
 
-        // Show all
-        if (isset($_POST['all'])) {
-            $sql = "SELECT * FROM 1_HardCandy " .
-                    "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                    "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                    "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                    "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
-                    "WHERE price < 10 " .
-                    "ORDER BY id";
-        }
-        $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                  ?> <option><?php echo $row["color"]; ?></option><?php
+                  }
+                  } else {
+                  echo "Database empty" . $conn->error;
+                  } 
+                ?>
+                <option>Lilla</option>
+            </select>
+        </form>
+        <?php
+        $sq = "SELECT * FROM 1_color ";
+        $resul = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "Navn: " . $row["name"] . " - Farve: " . $row["color"] . " - Vægt: " . $row["weight"] . " - Surhed: " . $row["sourness"] . " - smags-styrke: " . $row["tasteStrength"] . " - smags-type: " . $row["tasteType"] . " - Price: " . $row["price"] . "<br>";
+                echo $row["color"];
             }
         } else {
             echo "Database empty" . $conn->error;
