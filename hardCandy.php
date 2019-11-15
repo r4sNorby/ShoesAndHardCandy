@@ -74,7 +74,7 @@ and open the template in the editor.
                 <label>Navn: </label>
                 <input type="text" name="name" placeholder="Bolche" required><br>
                 <label>Farve: </label>
-                <select name="color" required>
+                <select name="color_id">
                     <?php
                     $color = "SELECT * FROM 1_color";
                     $colres = $conn->query($color);
@@ -89,12 +89,12 @@ and open the template in the editor.
                     ?>                    
                 </select><br>
                 <label>Vægt: 
-                    <input type="number" min="1" max="40" name="weight" placeholder="Vægt" required>
+                    <input type="number" name="weight" min="1" max="40" placeholder="Vægt" required>
                     gram</label><br>
                 <label>Surhed: </label>
-                <select name="sourness" required>
+                <select name="sourness_id">
                     <?php
-                    $sour = "SELECT sourness FROM 1_sourness";
+                    $sour = "SELECT * FROM 1_sourness";
                     $soures = $conn->query($sour);
                     if ($soures->num_rows > 0) {
 
@@ -107,9 +107,9 @@ and open the template in the editor.
                     ?>                    
                 </select><br>
                 <label>Styrke: </label>
-                <select name="strength" required>
+                <select name="strength_id">
                     <?php
-                    $strength = "SELECT tasteStrength FROM 1_tasteStrength";
+                    $strength = "SELECT * FROM 1_tasteStrength";
                     $strres = $conn->query($strength);
 
                     if ($strres->num_rows > 0) {
@@ -122,9 +122,9 @@ and open the template in the editor.
                     ?>                    
                 </select><br>
                 <label>Type: </label>
-                <select name="type" required>
+                <select name="type_id">
                     <?php
-                    $type = "SELECT tasteType FROM 1_tasteType";
+                    $type = "SELECT * FROM 1_tasteType";
                     $typres = $conn->query($type);
                     if ($typres->num_rows > 0) {
                         while ($row = $typres->fetch_assoc()) {

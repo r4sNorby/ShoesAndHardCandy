@@ -21,8 +21,8 @@ and open the template in the editor.
         $color_id = filter_input(INPUT_POST, 'color_id');
         $weight = filter_input(INPUT_POST, 'weight');
         $sourness_id = filter_input(INPUT_POST, 'sourness_id');
-        $tasteStrength_id = filter_input(INPUT_POST, 'tasteStrength_id');
-        $tasteType_id = filter_input(INPUT_POST, 'tasteType_id');
+        $tasteStrength_id = filter_input(INPUT_POST, 'strength_id');
+        $tasteType_id = filter_input(INPUT_POST, 'type_id');
         $price = filter_input(INPUT_POST, 'price');
 
         $conn = new mysqli($servername, $username, $password, $db_name);
@@ -31,31 +31,38 @@ and open the template in the editor.
             die("Connection failed: " . $conn->connect_error);
         }
         
-        $sql = "INSERT INTO 1_ShoeSize (name, color_id, weight, sourness_id, tasteStrength_id, tasteType_id, price)
-               VALUES (?, ?, ?, ?)";
-
+        // Charset doesn't always transfer properly to or from database
+        $conn->set_charset("utf8");
+        
+        //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
+        
+        $sql = "INSERT INTO 1_HardCandy (name, color_id, weight, sourness_id, tasteStrength_id, tasteType_id, price)
+               VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
         // Prepared statement
         $stmt = $conn->prepare($sql);
+        
         // Bind to values from form. The form posts the names of the inputs.
         // Remember to the change the values below if you change the datatype.
-        $stmt->bind_param("snnnnnn", $name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price);
-
+        $stmt->bind_param("siiiiii", $name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price);
+        
         $check = "SELECT * FROM 1_HardCandy WHERE name = '$name' AND color_id = '$color_id' AND weight = '$weight' AND sourness_id = '$sourness_id' AND tasteStrength_id = '$tasteStrength_id' AND tasteType_id = '$tasteType_id' AND price = '$price'";
         $result = $conn->query($check);
         // Print the result
         //print_r($result);
         
         if ($result->num_rows < 1) {
+            echo "No rows";
             // Execute statement and check if it was successful
             if ($stmt->execute()) {
-                // !!Redirect to list.php after submitting form!!
+                // !!Redirect to candyList.php after submitting form!!
                 header('location: candyInsert_redirect.html');
             } else {
                 // Or display error
-                echo "The SQL: '" . $sql . "' was faulty!<br>" . $conn->error;
+                echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
             }
         } else {
-            echo "User already exists!";
+            echo "Candy already exists!";
         }
 
         $stmt->close();

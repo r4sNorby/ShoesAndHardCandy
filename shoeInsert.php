@@ -51,7 +51,7 @@ and open the template in the editor.
                 header('location: shoeInsert_redirect.html');
             } else {
                 // Or display error
-                echo "The SQL: '" . $sql . "' was faulty!<br>" . $conn->error;
+                echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
             }
         } else {
             echo "User already exists!";
