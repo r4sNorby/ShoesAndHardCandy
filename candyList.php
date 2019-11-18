@@ -16,8 +16,10 @@
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
                 <a href="hardCandy.php"><i class="material-icons">input</i> Indsæt Bolche</a>
                 <a href="candyList.php"><i class="material-icons">list</i> Bolcheliste</a>
-                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+                <a href="candyColor.php"><i class="material-icons">color_lens</i> Farver</a>
+                <a href="candySourness.php"><i class="material-icons">sentiment_very_dissatisfied</i> Surheder</a>
+                <a href="candyStrength.php"><i class="material-icons">fitness_center</i> Styrker</a>
+                <a href="candyType.php"><i class="material-icons">local_dining</i> Typer</a>
             </div>
         </aside>
 
@@ -35,7 +37,7 @@
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
-                            <a class="droptxt">☰ Projekter</a>
+                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
@@ -186,6 +188,13 @@
                         "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                         "WHERE name LIKE '%" . $search . "%'" .
                         "ORDER BY id ASC";
+            } else {
+                $sql = "SELECT * FROM 1_HardCandy " .
+                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
+                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
+                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                        "ORDER BY id";
             }
 
             $result = $conn->query($sql);

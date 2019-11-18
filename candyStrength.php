@@ -6,52 +6,28 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <title>Birger Bolcher</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Skostørrelseliste</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="sidebar.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     </head>
     <body>
-        <script type="text/javascript">
-$(document).ready(function () {
-    $('#delete').click(function() {
-      checked = $("input[type=checkbox]:checked").length;
-
-      if(!checked) {
-        alert("You must check at least one checkbox.");
-        return false;
-      }
-
-    });
-});
-
-</script>
-        <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
-
-        $conn = new mysqli($servername, $username, $password, $db_name);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        ?>
         <aside>
-            <div id="sidebar" class="sidebar"></div>
+            <div id="sidebar" class="sidebar">
+            </div>
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
-                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+                <a href="hardCandy.php"><i class="material-icons">input</i> Indsæt Bolche</a>
+                <a href="candyList.php"><i class="material-icons">list</i> Bolcheliste</a>
+                <a href="candyColor.php"><i class="material-icons">color_lens</i> Farver</a>
+                <a href="candySourness.php"><i class="material-icons">sentiment_very_dissatisfied</i> Surheder</a>
+                <a href="candyStrength.php"><i class="material-icons">fitness_center</i> Styrker</a>
+                <a href="candyType.php"><i class="material-icons">local_dining</i> Typer</a>
             </div>
         </aside>
-        
+
         <header>
             <div class="topnav">
                 <!-- Sidebar button -->
@@ -77,34 +53,49 @@ $(document).ready(function () {
                 </div>
             </div>
         </header>
-        
-        <div id="main">
 
-            <!-- Delete-form with checkboxes for deleting rows -->
-            <form action="shoeDelete.php" method="post">
-                <?php
-                $sql = "SELECT * FROM 1_ShoeSize ORDER BY id ASC";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    //  Return results as an associative array and do stuff as long as there's data in it.
-                    while ($row = $result->fetch_assoc()) {
-                        ?>
-                        <!-- Adding a checkbox before each row -->
-                        <input type="checkbox" name="id[]" value="<?php echo $row["id"]; ?>">
-                        <?php
-                        // Echo all values
-                        echo "Navn: " . $row["name"] . " - Email: " . $row["email"] . " - DateOfBirth: " . $row["dateOfBirth"] . " - ShoeSize: " . $row["shoeSize"] . "<br>";
-                    }
-                    ?>
-                    <!-- Submit button for deleting rows -->
-                    <input type="submit" id='delete' name="delete" value="Delete">
-                    <?php
-                } else {
-                    // If empty
-                    echo "SORRY! Please contact your administrator. Just between you and me... either the database is empty or an error occured. I didn't do anything. I promise. It's not my fault.";
-                }
-                ?>
+        <div id="main">
+            <h1>Indsæt Smagsstyrke</h1>
+            
+            <!--Strength-->
+            <form action="attributeInsert.php" method="post">
+                <label>Smagsstyrke: </label>
+                <input type="text" name="strength" required><br>                
+                <input type="submit" name="submit" value="Indsæt">
             </form>
+            <br>
+            
+            <div class="list">
+                <?php
+                $servername = "localhost";
+                $username = "xran39.skp-dp";
+                $password = "k452ppy3";
+                $db_name = "xran39_skp_dp_sde_dk";
+
+                $conn = new mysqli($servername, $username, $password, $db_name);
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                
+                // Charset doesn't always transfer properly from database to php
+                $conn->set_charset("utf8");
+
+                $sql = "SELECT * FROM 1_tasteStrength";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<p class='listItems'>" . $row["tasteStrength_id"] . " - " . $row["tasteStrength"] . "</p>";
+                    }
+                } else {
+                    echo "Database empty" . $conn->error;
+                }
+
+                $conn->close();
+                ?>
+            </div>
         </div>
 
         <footer>

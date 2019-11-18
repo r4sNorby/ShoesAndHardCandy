@@ -96,7 +96,7 @@ if (mysqli_num_rows($result) > 0) {
                     <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
-                            <a class="droptxt">☰ Projekter</a>
+                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>

@@ -195,6 +195,19 @@ content to the right when you open the side navigation */
     flex: 1;
 }
 
+.list {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.listItems {
+    padding: 10px;
+    margin: 0;
+}
+
 /*Footer*/
 
 footer{

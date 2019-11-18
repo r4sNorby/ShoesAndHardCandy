@@ -19,10 +19,12 @@ and open the template in the editor.
             </div>
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bolche</a>
+                <a href="hardCandy.php"><i class="material-icons">input</i> Indsæt Bolche</a>
                 <a href="candyList.php"><i class="material-icons">list</i> Bolcheliste</a>
-                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
+                <a href="candyColor.php"><i class="material-icons">color_lens</i> Farver</a>
+                <a href="candySourness.php"><i class="material-icons">sentiment_very_dissatisfied</i> Surheder</a>
+                <a href="candyStrength.php"><i class="material-icons">fitness_center</i> Styrker</a>
+                <a href="candyType.php"><i class="material-icons">local_dining</i> Typer</a>
             </div>
         </aside>
 
@@ -40,7 +42,7 @@ and open the template in the editor.
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
-                            <a class="droptxt">☰ Projekter</a>
+                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
@@ -53,29 +55,47 @@ and open the template in the editor.
         </header>
 
         <div id="main">
-            <h1>Birger Bolcher</h1>
-
-            <!-- Form for Insert.php -->
-            <form action="candyInsert.php" method="post">
-                <label>Navn: </label>
-                <input type="text" name="name" placeholder="Navn" required><br>
-                <label>Farve: </label>
-                <input type="text" name="color" placeholder="Farve" required><br>
-                <label>Vægt i gram: </label>
-                <input type="number" min="1" max="40" name="weight" placeholder="Vægt" required><br>
+            <h1>Indsæt Surhed</h1>
+            
+            <!--Sourness-->
+            <form action="attributeInsert.php" method="post">
                 <label>Surhed: </label>
-                <input type="text" name="sourness" placeholder="Surhed" required><br>
-                <label>Styrke: </label>
-                <input type="text" name="strength" placeholder="Styrke" required><br>
-                <label>Type: </label>
-                <input type="text" name="type" placeholder="Type" required><br>
-                <label>Pris i ører: </label>
-                <input type="number" min="1" max="100" name="price" placeholder="Pris" required><br>
-                
+                <input type="text" name="sourness" required><br>
                 <input type="submit" name="submit" value="Indsæt">
             </form>
             <br>
-            <p>Test of the <a href="candyInsert_redirect.html">redirect</a> function</p>
+            
+            <div class="list">
+                <?php
+                $servername = "localhost";
+                $username = "xran39.skp-dp";
+                $password = "k452ppy3";
+                $db_name = "xran39_skp_dp_sde_dk";
+
+                $conn = new mysqli($servername, $username, $password, $db_name);
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                
+                // Charset doesn't always transfer properly from database to php
+                $conn->set_charset("utf8");
+
+                $sql = "SELECT * FROM 1_sourness";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<p class='listItems'>" . $row["sourness_id"] . " - " . $row["sourness"] . "</p>";
+                    }
+                } else {
+                    echo "Database empty" . $conn->error;
+                }
+
+                $conn->close();
+                ?>
+            </div>
         </div>
 
         <footer>
