@@ -19,8 +19,8 @@ and open the template in the editor.
 
         $color = filter_input(INPUT_POST, 'color');
         $sourness = filter_input(INPUT_POST, 'sourness');
-        $tasteStrength = filter_input(INPUT_POST, 'tasteStrength');
-        $tasteType = filter_input(INPUT_POST, 'tasteType');
+        $tasteStrength = filter_input(INPUT_POST, 'strength');
+        $tasteType = filter_input(INPUT_POST, 'type');
 
         $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -50,23 +50,18 @@ and open the template in the editor.
 
         // Bind to values from form. The form posts the names of the inputs.
         // Remember to the change the values below if you change the datatype.
+        // Also, check if the attribute already exists
         if (isset($color)) {
             $stmt->bind_param("s", $color);
-        } else if (isset($sourness)) {
-            $stmt->bind_param("s", $sourness);
-        } else if (isset($tasteStrength)) {
-            $stmt->bind_param("s", $tasteStrength);
-        } else if (isset($tasteType)) {
-            $stmt->bind_param("s", $tasteType);
-        }
-
-        if (isset($color)) {
             $check = "SELECT * FROM 1_color WHERE color = '$color'";
         } else if (isset($sourness)) {
+            $stmt->bind_param("s", $sourness);
             $check = "SELECT * FROM 1_sourness WHERE sourness = '$sourness'";
         } else if (isset($tasteStrength)) {
+            $stmt->bind_param("s", $tasteStrength);
             $check = "SELECT * FROM 1_tasteStrength WHERE tasteStrength = '$tasteStrength'";
         } else if (isset($tasteType)) {
+            $stmt->bind_param("s", $tasteType);
             $check = "SELECT * FROM 1_tasteType WHERE tasteType = '$tasteType'";
         }
 
@@ -75,7 +70,6 @@ and open the template in the editor.
         //print_r($result);
 
         if ($result->num_rows < 1) {
-            echo "No rows f";
             // Execute statement and check if it was successful
             if ($stmt->execute()) {
                 // !!Redirect after submitting form!!
