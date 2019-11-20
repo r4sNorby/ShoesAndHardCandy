@@ -52,6 +52,7 @@
         <div id="main">
             <form action="candyList.php" method="POST" class="candyListForm">
                 <select name="candyList" onchange="this.form.submit()">
+                    <option>Vælg en søgning...</option>
                     <option value="all">Alle</option>
                     <option value="red">Rød</option>
                     <option value="redAndBlue">Rød og Blå</option>
@@ -62,7 +63,9 @@
                     <option value="tenAndTwelve">Mellem 10 og 12 gram alfabetisk og derefter vægt</option>
                     <option value="heavyThree">De tre tungeste bolcher</option>
                 </select>
-                <input type="submit" value="random">Alt om et tilfældigt bolche
+            </form>
+            <form action="candyList.php" method="POST" class="candyListForm">
+                <input type="submit" name="random" value="Alt om et tilfældigt bolche">
                 <input type="text" name="search">
                 <input type="submit" name="submit" value="Søg">
             </form>
@@ -93,7 +96,7 @@
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                
+
                 // Charset doesn't always transfer properly from database to php
                 $conn->set_charset("utf8");
 
@@ -177,9 +180,9 @@
                                 "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
                                 "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                 "ORDER BY weight DESC LIMIT 3";
-                        // All info about a random piece of candy
                     }
-                } else if ($candyList == "random") {
+                    // All info about a random piece of candy
+                } else if (isset($random)) {
                     $sql = "SELECT * FROM 1_HardCandy " .
                             "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
                             "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
@@ -187,21 +190,26 @@
                             "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                             "ORDER BY RAND() LIMIT 1";
                     // Search Bar
-                } else if ($candyList == "search") {
-                    $sql = "SELECT * FROM 1_HardCandy " .
-                            "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                            "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                            "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                            "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
-                            "WHERE name LIKE '%" . $search . "%'" .
-                            "ORDER BY id ASC";
-                } else {
+                } else if (isset($search)) {
+                    if ($search != "") {
+                        $sql = "SELECT * FROM 1_HardCandy " .
+                                "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
+                                "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
+                                "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                "WHERE name LIKE '%" . $search . "%'" .
+                                "ORDER BY id ASC";
+                    } else {
+                        echo "Du søgte ikke efter noget";
+                    }
+                } else if ($search == "") {
                     $sql = "SELECT * FROM 1_HardCandy " .
                             "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
                             "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
                             "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
                             "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                             "ORDER BY id";
+                    echo "Supercalifragilisticexpialidocious";
                 }
 
                 $result = $conn->query($sql);
