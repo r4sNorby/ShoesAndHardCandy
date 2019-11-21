@@ -4,6 +4,15 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+// Generate SQL
+function genSQL($DBattribute, $columnName) {
+            $sql = "INSERT INTO $columnName ($DBattribute)
+               VALUES (?)";
+            return $sql;
+}
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -30,20 +39,29 @@ and open the template in the editor.
 
         // Charset doesn't always transfer properly to or from database
         $conn->set_charset("utf8");
-
+        
+        
+        
         if (isset($color)) {
-            $sql = "INSERT INTO 1_color (color)
-               VALUES (?)";
+            $attribute = $color;
+            $DBattribute = "color";
+            $columnName = "1_color";
         } else if (isset($sourness)) {
-            $sql = "INSERT INTO 1_sourness (sourness)
-               VALUES (?)";
+            $attribute = $sourness;
+            $DBattribute = "sourness";
+            $columnName = "1_sourness";
         } else if (isset($tasteStrength)) {
-            $sql = "INSERT INTO 1_tasteStrength (tasteStrength)
-               VALUES (?)";
+            $attribute = $tasteStrength;
+            $DBattribute = "tasteStrength";
+            $columnName = "1_tasteStrength";
         } else if (isset($tasteType)) {
-            $sql = "INSERT INTO 1_tasteType (tasteType)
-               VALUES (?)";
+            $attribute = $tasteType;
+            $DBattribute = "tasteType";
+            $columnName = "1_tasteType";
         }
+        $sql = genSQL($DBattribute, $columnName);
+            echo $sql; 
+        
 
         // Prepared statement
         $stmt = $conn->prepare($sql);

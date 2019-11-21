@@ -21,8 +21,7 @@ and open the template in the editor.
         $email = filter_input(INPUT_POST, 'email');
         $dateOfBirth = filter_input(INPUT_POST, 'dateOfBirth');
         $shoeSize = filter_input(INPUT_POST, 'shoeSize');
-
-
+        
         $conn = new mysqli($servername, $username, $password, $db_name);
 
         if ($conn->connect_error) {

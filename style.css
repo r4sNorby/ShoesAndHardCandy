@@ -196,11 +196,13 @@ content to the right when you open the side navigation */
 }
 
 .list {
-    width: auto;
+    min-height: 100px;
+    min-width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border: 1px solid;
+    padding: 10px;
 }
 
 .listItems {
