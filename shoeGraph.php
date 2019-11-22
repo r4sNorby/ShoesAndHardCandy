@@ -93,7 +93,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
                     <a class="buttons" href="shoes.html">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
+                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
                             <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
@@ -101,7 +101,7 @@ if (mysqli_num_rows($result) > 0) {
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
                             <a href="shoes.html">Skostørrelser</a>
-                            <a href="hardCandy.html">Birger Bolcher</a>
+                            <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ if (mysqli_num_rows($result) > 0) {
                     <span>|</span>
                     <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
                     <span>|</span>
-                    <a class="footerLink" href="hardCandy.html">BIRGER BOLCHER</a>
+                    <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
                 </nav>
             </div>
 

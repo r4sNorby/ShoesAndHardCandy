@@ -5,13 +5,32 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+
 // Generate SQL
 function genSQL($DBattribute, $columnName) {
-            $sql = "INSERT INTO $columnName ($DBattribute)
+    $sql = "INSERT INTO $columnName ($DBattribute)
                VALUES (?)";
-            return $sql;
+    return $sql;
 }
 
+function preparedStatement($attribute, $conn, $sql) {
+    // Prepared statement
+    $stmt = $conn->prepare($sql);
+
+    // Bind to values from form. The form posts the names of the inputs.
+    // Remember to the change the values below if you change the datatype.
+    // Also, check if the attribute already exists
+    $stmt->bind_param("s", $attribute);
+    return $stmt;
+}
+
+function checkQuery($attribute, $conn) {
+    // Check query if attribute exists in database.
+    $check = "SELECT * FROM 1_color WHERE color = '$attribute'";
+        
+    $result = $conn->query($check);
+    return $result;
+}
 ?>
 <html>
     <head>
@@ -39,9 +58,9 @@ function genSQL($DBattribute, $columnName) {
 
         // Charset doesn't always transfer properly to or from database
         $conn->set_charset("utf8");
-        
-        
-        
+
+
+
         if (isset($color)) {
             $attribute = $color;
             $DBattribute = "color";
@@ -60,30 +79,10 @@ function genSQL($DBattribute, $columnName) {
             $columnName = "1_tasteType";
         }
         $sql = genSQL($DBattribute, $columnName);
-            echo $sql; 
-        
 
-        // Prepared statement
-        $stmt = $conn->prepare($sql);
+        $stmt = preparedStatement($attribute, $conn , $sql);
 
-        // Bind to values from form. The form posts the names of the inputs.
-        // Remember to the change the values below if you change the datatype.
-        // Also, check if the attribute already exists
-        if (isset($color)) {
-            $stmt->bind_param("s", $color);
-            $check = "SELECT * FROM 1_color WHERE color = '$color'";
-        } else if (isset($sourness)) {
-            $stmt->bind_param("s", $sourness);
-            $check = "SELECT * FROM 1_sourness WHERE sourness = '$sourness'";
-        } else if (isset($tasteStrength)) {
-            $stmt->bind_param("s", $tasteStrength);
-            $check = "SELECT * FROM 1_tasteStrength WHERE tasteStrength = '$tasteStrength'";
-        } else if (isset($tasteType)) {
-            $stmt->bind_param("s", $tasteType);
-            $check = "SELECT * FROM 1_tasteType WHERE tasteType = '$tasteType'";
-        }
-
-        $result = $conn->query($check);
+        $check = checkQuery($attribute, $conn);
         // Print the result
         //print_r($result);
 

@@ -23,7 +23,7 @@ and open the template in the editor.
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
                     <a class="buttons" href="shoes.html">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.html">Birger Bolcher</a>
+                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
                             <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
@@ -31,7 +31,7 @@ and open the template in the editor.
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
                             <a href="shoes.html">Skostørrelser</a>
-                            <a href="hardCandy.html">Birger Bolcher</a>
+                            <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>
@@ -44,25 +44,11 @@ and open the template in the editor.
                     <a href="shoes.html">Skostørrelse</a>
                 </div>
                 <div class="link">
-                    <a href="hardCandy.html">Birger Bolcher</a>
+                    <a href="hardCandy.php">Birger Bolcher</a>
                 </div>
             </div>
         </div>
 
-        <footer>
-            <div class="footerTop">
-                <nav class="footerButtons">
-                    <a class="footerLink" href="index.html">HJEM</a>
-                    <span>|</span>
-                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
-                    <span>|</span>
-                    <a class="footerLink" href="hardCandy.html">BIRGER BOLCHER</a>
-                </nav>
-            </div>
-
-            <div class="footerBottom">
-                <span>&COPY; 2019 Rasmus Nørby</span>
-            </div>
-        </footer>
+        <?php include 'footer.php'?>
     </body>
 </html>

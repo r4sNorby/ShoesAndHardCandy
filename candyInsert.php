@@ -12,27 +12,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
-        
-        $name = filter_input(INPUT_POST, 'name');
-        $color_id = filter_input(INPUT_POST, 'color_id');
-        $weight = filter_input(INPUT_POST, 'weight');
-        $sourness_id = filter_input(INPUT_POST, 'sourness_id');
-        $tasteStrength_id = filter_input(INPUT_POST, 'strength_id');
-        $tasteType_id = filter_input(INPUT_POST, 'type_id');
-        $price = filter_input(INPUT_POST, 'price');
-
-        $conn = new mysqli($servername, $username, $password, $db_name);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        
-        // Charset doesn't always transfer properly to or from database
-        $conn->set_charset("utf8");
+        include 'connection.php';
+                
+        $name = filter_input(INPUT_POST, "name");
+        $color_id = filter_input(INPUT_POST, "color_id");
+        $weight = filter_input(INPUT_POST, "weight");
+        $sourness_id = filter_input(INPUT_POST, "sourness_id");
+        $tasteStrength_id = filter_input(INPUT_POST, "strength_id");
+        $tasteType_id = filter_input(INPUT_POST, "type_id");
+        $price = filter_input(INPUT_POST, "price");
         
         //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
         

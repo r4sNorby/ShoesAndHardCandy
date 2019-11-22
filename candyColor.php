@@ -14,45 +14,10 @@ and open the template in the editor.
         <script src="sidebar.js"></script>
     </head>
     <body>
-        <aside>
-            <div id="sidebar" class="sidebar">
-            </div>
-            <div id="sidebarbuttons" class="sidebarbuttons">
-                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="hardCandy.php"><i class="material-icons">input</i> Indsæt Bolche</a>
-                <a href="candyList.php"><i class="material-icons">list</i> Bolcheliste</a>
-                <a href="candyColor.php"><i class="material-icons">color_lens</i> Farver</a>
-                <a href="candySourness.php"><i class="material-icons">sentiment_very_dissatisfied</i> Surheder</a>
-                <a href="candyStrength.php"><i class="material-icons">fitness_center</i> Styrker</a>
-                <a href="candyType.php"><i class="material-icons">local_dining</i> Typer</a>
-            </div>
-        </aside>
-
-        <header>
-            <div class="topnav">
-                <!-- Sidebar button -->
-                <div class="togglebtn" onclick="toggle()">
-                    <a>☰ Udvid menu</a>
-                </div>
-
-                <!-- Header Buttons-->
-                <div class='headerButtons'>
-                    <a class="buttons" href="index.html">Hjem</a>
-                    <a class="buttons" href="shoes.html">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
-                    <div class="dropbtn">
-                        <div class="droptxt">
-                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
-                        </div>
-                        <div class="dropdown-content">
-                            <a href="index.html">Hjem</a>
-                            <a href="shoes.html">Skostørrelser</a>
-                            <a href="hardCandy.php">Birger Bolcher</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <?php
+        include 'candySidebar.php';
+        include 'header.php';
+        ?>
 
         <div id="main">
             <h1>Indsæt Farve</h1>
@@ -77,7 +42,7 @@ and open the template in the editor.
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                
+
                 // Charset doesn't always transfer properly from database to php
                 $conn->set_charset("utf8");
 
@@ -98,20 +63,6 @@ and open the template in the editor.
             </div>
         </div>
 
-        <footer>
-            <div class="footerTop">
-                <nav class="footerButtons">
-                    <a class="footerLink" href="index.html">HJEM</a>
-                    <span>|</span>
-                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
-                    <span>|</span>
-                    <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
-                </nav>
-            </div>
-
-            <div class="footerBottom">
-                <span>&COPY; 2019 Rasmus Nørby</span>
-            </div>
-        </footer>
+        <?php include 'footer.php' ?>
     </body>
 </html>
