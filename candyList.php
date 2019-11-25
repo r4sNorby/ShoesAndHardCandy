@@ -1,4 +1,4 @@
-<?php include 'connection.php';?>
+<?php include 'connection.php'; ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="sidebar.js"></script>
-        <title></title>
+        <title>Bolcheliste</title>
     </head>
     <body>
         <?php
@@ -30,7 +30,7 @@
                     <option value="heavyThree">De tre tungeste bolcher</option>
                 </select>
             </form>
-            
+
             <!--Random Candy and Search Bar-->
             <form action="candyList.php" method="POST" class="candyListForm">
                 <input type="submit" name="random" value="Alt om et tilfældigt bolche">
@@ -198,6 +198,6 @@
             </div>
         </div>
 
-        <?php include 'footer.php';?>
+        <?php include 'footer.php'; ?>
     </body>
 </html>

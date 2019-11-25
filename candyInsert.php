@@ -4,6 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include 'connection.php';
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,8 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include 'connection.php';
-                
+        
         $name = filter_input(INPUT_POST, "name");
         $color_id = filter_input(INPUT_POST, "color_id");
         $weight = filter_input(INPUT_POST, "weight");

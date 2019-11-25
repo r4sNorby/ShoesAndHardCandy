@@ -14,9 +14,10 @@ and open the template in the editor.
         <script src="sidebar.js"></script>
     </head>
     <body>
-        <?php include 'shoeSidebar.php' ?>
-        
-        <?php include 'header.php'; ?>
+        <?php 
+        include 'shoeSidebar.php';
+        include 'header.php';
+        ?>
 
         <div id="main">
             <h1>Sk<a href="googCharts.php" id="o">o</a>størrelse</h1>

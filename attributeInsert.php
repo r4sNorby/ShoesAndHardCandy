@@ -5,32 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-
-// Generate SQL
-function genSQL($DBattribute, $columnName) {
-    $sql = "INSERT INTO $columnName ($DBattribute)
-               VALUES (?)";
-    return $sql;
-}
-
-function preparedStatement($attribute, $conn, $sql) {
-    // Prepared statement
-    $stmt = $conn->prepare($sql);
-
-    // Bind to values from form. The form posts the names of the inputs.
-    // Remember to the change the values below if you change the datatype.
-    // Also, check if the attribute already exists
-    $stmt->bind_param("s", $attribute);
-    return $stmt;
-}
-
-function checkQuery($attribute, $conn) {
-    // Check query if attribute exists in database.
-    $check = "SELECT * FROM 1_color WHERE color = '$attribute'";
-        
-    $result = $conn->query($check);
-    return $result;
-}
+include 'connection.php';
+include 'attributeMethods.php';
 ?>
 <html>
     <head>
@@ -40,49 +16,31 @@ function checkQuery($attribute, $conn) {
     </head>
     <body>
         <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
-
         $color = filter_input(INPUT_POST, 'color');
         $sourness = filter_input(INPUT_POST, 'sourness');
         $tasteStrength = filter_input(INPUT_POST, 'strength');
         $tasteType = filter_input(INPUT_POST, 'type');
 
-        $conn = new mysqli($servername, $username, $password, $db_name);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // Charset doesn't always transfer properly to or from database
-        $conn->set_charset("utf8");
-
-
-
         if (isset($color)) {
             $attribute = $color;
             $DBattribute = "color";
-            $columnName = "1_color";
+            $tableName = "1_color";
         } else if (isset($sourness)) {
             $attribute = $sourness;
             $DBattribute = "sourness";
-            $columnName = "1_sourness";
+            $tableName = "1_sourness";
         } else if (isset($tasteStrength)) {
             $attribute = $tasteStrength;
             $DBattribute = "tasteStrength";
-            $columnName = "1_tasteStrength";
+            $tableName = "1_tasteStrength";
         } else if (isset($tasteType)) {
             $attribute = $tasteType;
             $DBattribute = "tasteType";
-            $columnName = "1_tasteType";
+            $tableName = "1_tasteType";
         }
-        $sql = genSQL($DBattribute, $columnName);
+        $stmt = preparedStatement($DBattribute, $tableName, $attribute, $conn);
 
-        $stmt = preparedStatement($attribute, $conn , $sql);
-
-        $check = checkQuery($attribute, $conn);
+        $result = checkQuery($attribute, $conn);
         // Print the result
         //print_r($result);
 
