@@ -116,7 +116,7 @@ if (mysqli_num_rows($result) > 0) {
             <div id="sidebar" class="sidebar"></div>
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.html"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
                 <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
                 <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
                 <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
@@ -133,7 +133,7 @@ if (mysqli_num_rows($result) > 0) {
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
-                    <a class="buttons" href="shoes.html">Skostørrelser</a>
+                    <a class="buttons" href="shoes.php">Skostørrelser</a>
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
@@ -141,7 +141,7 @@ if (mysqli_num_rows($result) > 0) {
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
-                            <a href="shoes.html">Skostørrelser</a>
+                            <a href="shoes.php">Skostørrelser</a>
                             <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
@@ -160,7 +160,7 @@ if (mysqli_num_rows($result) > 0) {
                 <nav class="footerButtons">
                     <a class="footerLink" href="index.html">HJEM</a>
                     <span>|</span>
-                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
+                    <a class="footerLink" href="shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
                     <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
                 </nav>

@@ -16,18 +16,18 @@ and open the template in the editor.
         $username = "xran39.skp-dp";
         $password = "k452ppy3";
         $db_name = "xran39_skp_dp_sde_dk";
-        
+
         $name = filter_input(INPUT_POST, 'name');
         $email = filter_input(INPUT_POST, 'email');
         $dateOfBirth = filter_input(INPUT_POST, 'dateOfBirth');
         $shoeSize = filter_input(INPUT_POST, 'shoeSize');
-        
+
         $conn = new mysqli($servername, $username, $password, $db_name);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        
+
         // 1_ShoeSize fordi det er efter første hovedforløb
         $sql = "INSERT INTO 1_ShoeSize (name, email, dateOfBirth, shoeSize)
                VALUES (?, ?, ?, ?)";
@@ -42,16 +42,18 @@ and open the template in the editor.
         $result = $conn->query($check);
         // Print the result
         //print_r($result);
-        
+
         if ($result->num_rows < 1) {
             // Execute statement and check if it was successful
             if ($stmt->execute()) {
                 // !!Redirect to list.php after submitting form!!
-                header('location: shoeInsert_redirect.html');
+                header('refresh:0; url=shoeGraph.php');
             } else {
                 // Or display error
                 echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
             }
+            // Always echo this
+            echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
         } else {
             echo "User already exists!";
         }
@@ -60,8 +62,5 @@ and open the template in the editor.
         $conn->close();
         ?>
         <br>
-
-        <p>Return to the front page</p>
-        <a href="shoes.html">Home</a>
     </body>
 </html>

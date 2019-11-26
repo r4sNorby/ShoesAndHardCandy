@@ -45,7 +45,7 @@
 
     <body>
 
-        <a href="shoes.html">Home</a>
+        <a href="shoes.php">Home</a>
         <a href="shoeList.php">List</a>
         <a href="shoeGraph.php">Graph</a>
 

@@ -43,14 +43,23 @@ include 'connection.php';
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<p class='listItems'>" . $row["sourness_id"] . " - " . $row["sourness"] . "</p>";
+                            ?>
+                            <!-- Adding a checkbox before each row -->
+                            <p class='listItems'>
+                                <input type="checkbox" name="sournessId[]" value="<?php echo $row["sourness_id"]; ?>">
+                                <?php
+                                echo $row["sourness_id"] . " - " . $row["sourness"] . "</p>";
+                            }
+                            ?>
+                            <!-- Submit button for deleting rows -->
+                            <input type="submit" id='delete' name="delete" value="Delete">
+                            <?php
+                        } else {
+                            echo "Database empty" . $conn->error;
                         }
-                    } else {
-                        echo "Database empty" . $conn->error;
-                    }
 
-                    $conn->close();
-                    ?>
+                        $conn->close();
+                        ?>
                 </form>
             </div>
         </div>

@@ -25,22 +25,26 @@ include 'attributeMethods.php';
             $attribute = $color;
             $DBattribute = "color";
             $tableName = "1_color";
+            $redirect = "candyColor";
         } else if (isset($sourness)) {
             $attribute = $sourness;
             $DBattribute = "sourness";
             $tableName = "1_sourness";
+            $redirect = "candySourness";
         } else if (isset($tasteStrength)) {
             $attribute = $tasteStrength;
             $DBattribute = "tasteStrength";
             $tableName = "1_tasteStrength";
+            $redirect = "candyStrength";
         } else if (isset($tasteType)) {
             $attribute = $tasteType;
             $DBattribute = "tasteType";
             $tableName = "1_tasteType";
+            $redirect = "candyType";
         }
         $stmt = preparedStatement($DBattribute, $tableName, $attribute, $conn);
 
-        $result = checkQuery($attribute, $conn);
+        $result = checkInsert($attribute, $tableName, $DBattribute, $conn);
         // Print the result
         //print_r($result);
 
@@ -49,18 +53,20 @@ include 'attributeMethods.php';
             if ($stmt->execute()) {
                 // !!Redirect after submitting form!!
                 if (isset($color)) {
-                    header('location: candyColor.php');
+                    header('refresh:0; url=candyColor.php');
                 } else if (isset($sourness)) {
-                    header('location: candySourness.php');
+                    header('refresh:0; url=candySourness.php');
                 } else if (isset($tasteStrength)) {
-                    header('location: candyStrength.php');
+                    header('refresh:0; url=candyStrength.php');
                 } else if (isset($tasteType)) {
-                    header('location: candyType.php');
+                    header('refresh:0; url=candyType.php');
                 }
             } else {
                 // Or display error
                 echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
             }
+            // Always echo this
+            echo "You should be redirecting in 1 second. If not, please click <a href='$redirect.php'>redirect</a>";
         } else {
             echo "Attribute already exists!";
         }

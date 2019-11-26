@@ -42,14 +42,23 @@ include 'connection.php';
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<p class='listItems'>" . $row["tasteType_id"] . " - " . $row["tasteType"] . "</p>";
+                            ?>
+                            <!-- Adding a checkbox before each row -->
+                            <p class='listItems'>
+                                <input type="checkbox" name="typeId[]" value="<?php echo $row["tasteType_id"]; ?>">
+                                <?php
+                                echo $row["tasteType_id"] . " - " . $row["tasteType"] . "</p>";
+                            }
+                            ?>
+                            <!-- Submit button for deleting rows -->
+                            <input type="submit" id='delete' name="delete" value="Delete">
+                            <?php
+                        } else {
+                            echo "Database empty" . $conn->error;
                         }
-                    } else {
-                        echo "Database empty" . $conn->error;
-                    }
 
-                    $conn->close();
-                    ?>
+                        $conn->close();
+                        ?>
                 </form>
             </div>
         </div>
@@ -59,7 +68,7 @@ include 'connection.php';
                 <nav class="footerButtons">
                     <a class="footerLink" href="index.html">HJEM</a>
                     <span>|</span>
-                    <a class="footerLink" href="shoes.html">SKOSTØRRELSER</a>
+                    <a class="footerLink" href="shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
                     <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
                 </nav>

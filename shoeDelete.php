@@ -11,13 +11,13 @@ and open the template in the editor.
         <title>Sletter bruger</title>
     </head>
     <body>
-        
+
         <?php
         $servername = "localhost";
         $username = "xran39.skp-dp";
         $password = "k452ppy3";
         $db_name = "xran39_skp_dp_sde_dk";
-        
+
         // Get the id from the form
         //WHY DOES FILTER_INPUT NOT WORK!!!???
         $id = $_POST['id'];
@@ -29,9 +29,9 @@ and open the template in the editor.
         }
 
         //Print array values
-        /*foreach($id as $id){
-            echo $id[0];
-        }*/
+        /* foreach($id as $id){
+          echo $id[0];
+          } */
         // Was the delete button pressed while a checkbox was checked?
         if (isset($id)) {
 
@@ -43,17 +43,20 @@ and open the template in the editor.
                 $stmt = $conn->prepare("DELETE FROM 1_ShoeSize WHERE id = ?");
 
                 // Bind to values from form
-                $stmt->bind_param(i, $del_id);
+                $stmt->bind_param("i", $del_id);
 
                 if ($stmt->execute()) {
-                    header('location: shoeDelete_redirect.html');
+                    header('refresh:0; url=shoeGraph.php');
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
+                // Always echo this
+                echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
             }
         } else {
             echo "No checkboxes were checked!";
         }
+
         $stmt->close();
         $conn->close();
         ?>

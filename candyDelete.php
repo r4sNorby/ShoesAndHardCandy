@@ -4,6 +4,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include 'connection.php';
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,17 +15,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include 'connection.php';
-        
         // Get the id from the form
         //WHY DOES FILTER_INPUT NOT WORK!!!???
         $id = $_POST['id'];
 
 
         //Print array values
-        /*foreach($id as $id){
-            echo $id[0];
-        }*/
+        /* foreach($id as $id){
+          echo $id[0];
+          } */
         // Was the delete button pressed while a checkbox was checked?
         if (isset($id)) {
 
@@ -30,17 +31,21 @@ and open the template in the editor.
             for ($i = 0; $i < count($id); $i++) {
                 $del_id = $id[$i];
 
+                $sql = "DELETE FROM 1_HardCandy WHERE id = ?";
+
                 // Prepared statement
-                $stmt = $conn->prepare("DELETE FROM 1_HardCandy WHERE id = ?");
+                $stmt = $conn->prepare($sql);
 
                 // Bind to values from form
-                $stmt->bind_param(i, $del_id);
+                $stmt->bind_param("i", $del_id);
 
                 if ($stmt->execute()) {
-                    header('location: candyDelete_redirect.html');
+                    header('refresh:0; url=candyList.php');
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
+                // Always echo this
+                echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
             }
         } else {
             echo "No checkboxes were checked!";
