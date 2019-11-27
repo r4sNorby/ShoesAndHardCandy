@@ -1,17 +1,17 @@
-<?php include 'connection.php'; ?>
+<?php include '../functions/connection.php'; ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
         <title>Bolcheliste</title>
     </head>
     <body>
         <?php
-        include 'candySidebar.php';
-        include 'header.php';
+        include '../hardCandy/candySidebar.php';
+        include '../functions/header.php';
         ?>
 
         <div id="main">
@@ -198,6 +198,6 @@
             </div>
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include '../functions/footer.php'; ?>
     </body>
 </html>

@@ -4,34 +4,24 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include '../functions/connection.php';
+?>
 <html>
     <head>
         <title>Birger Bolcher</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
+        include '../hardCandy/candySidebar.php';
 
-        $conn = new mysqli($servername, $username, $password, $db_name);
-        // Charset doesn't always transfer properly from database to php
-        $conn->set_charset("utf8");
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        
-        include 'candySidebar.php';
+        include '../functions/header.php';
         ?>
-        
-        <?php include 'header.php'?>
 
         <div id="main">
             <h1>Birger Bolcher</h1>
@@ -112,6 +102,6 @@ and open the template in the editor.
             <p>Test of the <a href="candyInsert_redirect.html">redirect</a> function</p>
         </div>
 
-        <?php include 'footer.php';?>
+        <?php include '../functions/footer.php'; ?>
     </body>
 </html>

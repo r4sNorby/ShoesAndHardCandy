@@ -9,9 +9,9 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Skostørrelseliste</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     </head>
     <body>
@@ -45,7 +45,7 @@ $(document).ready(function () {
             <div id="sidebar" class="sidebar"></div>
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="../shoeSize/shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
                 <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
                 <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
                 <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
@@ -62,7 +62,7 @@ $(document).ready(function () {
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
-                    <a class="buttons" href="shoes.php">Skostørrelser</a>
+                    <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
@@ -70,7 +70,7 @@ $(document).ready(function () {
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
-                            <a href="shoes.php">Skostørrelser</a>
+                            <a href="../shoeSize/shoes.php">Skostørrelser</a>
                             <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 <nav class="footerButtons">
                     <a class="footerLink" href="index.html">HJEM</a>
                     <span>|</span>
-                    <a class="footerLink" href="shoes.php">SKOSTØRRELSER</a>
+                    <a class="footerLink" href="../shoeSize/shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
                     <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
                 </nav>

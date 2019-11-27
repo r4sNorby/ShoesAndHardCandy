@@ -9,9 +9,9 @@ and open the template in the editor.
         <title>Forside</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <header>
@@ -22,7 +22,7 @@ and open the template in the editor.
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
-                    <a class="buttons" href="shoes.php">Skostørrelser</a>
+                    <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
@@ -30,7 +30,7 @@ and open the template in the editor.
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
-                            <a href="shoes.php">Skostørrelser</a>
+                            <a href="../shoeSize/shoes.php">Skostørrelser</a>
                             <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ and open the template in the editor.
         <div id="main">
             <div class="flex-container">
                 <div class="link">
-                    <a href="shoes.php">Skostørrelse</a>
+                    <a href="../shoeSize/shoes.php">Skostørrelse</a>
                 </div>
                 <div class="link">
                     <a href="hardCandy.php">Birger Bolcher</a>
@@ -49,6 +49,6 @@ and open the template in the editor.
             </div>
         </div>
 
-        <?php include 'footer.php'?>
+        <?php include '../functions/footer.php';?>
     </body>
 </html>

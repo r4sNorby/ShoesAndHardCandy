@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include 'connection.php';
+include '../functions/connection.php';
 ?>
 
 <html>
@@ -13,23 +13,23 @@ include 'connection.php';
         <title>Birger Bolcher</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <?php
-        include 'candySidebar.php';
-        include 'header.php';
+        include '../hardCandy/candySidebar.php';
+        include '../functions/header.php';
         ?>
 
         <div id="main">
-            <h1>Indsæt Smagsstyrke</h1>
+            <h1>Indsæt Farve</h1>
 
-            <!--Strength-->
+            <!--Color-->
             <form action="attributeInsert.php" method="post">
-                <label>Smagsstyrke: </label>
-                <input type="text" name="strength" required><br>                
+                <label>Farve: </label>
+                <input type="text" name="color" required><br>                
                 <input type="submit" name="submit" value="Indsæt">
             </form>
             <br>
@@ -37,7 +37,7 @@ include 'connection.php';
             <div class="list">
                 <form action="attributeDelete.php" method="post">
                     <?php
-                    $sql = "SELECT * FROM 1_tasteStrength";
+                    $sql = "SELECT * FROM 1_color";
 
                     $result = $conn->query($sql);
 
@@ -46,9 +46,9 @@ include 'connection.php';
                             ?>
                             <!-- Adding a checkbox before each row -->
                             <p class='listItems'>
-                                <input type="checkbox" name="strengthId[]" value="<?php echo $row["tasteStrength_id"]; ?>">
+                                <input type="checkbox" name="colorId[]" value="<?php echo $row["color_id"]; ?>">
                                 <?php
-                                echo $row["tasteStrength_id"] . " - " . $row["tasteStrength"] . "</p>";
+                                echo $row["color_id"] . " - " . $row["color"] . "</p>";
                             }
                             ?>
                             <!-- Submit button for deleting rows -->
@@ -64,6 +64,6 @@ include 'connection.php';
             </div>
         </div>
 
-        <?php include 'footer.php' ?>
+        <?php include '../functions/footer.php'; ?>
     </body>
 </html>

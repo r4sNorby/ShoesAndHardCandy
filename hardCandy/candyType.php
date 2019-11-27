@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 --><?php
-include 'connection.php';
+include '../functions/connection.php';
 ?>
 
 <html>
@@ -12,14 +12,14 @@ include 'connection.php';
         <title>Birger Bolcher</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <?php
-        include 'candySidebar.php';
-        include 'header.php';
+        include '../hardCandy/candySidebar.php';
+        include '../functions/header.php';
         ?>
 
         <div id="main">
@@ -63,20 +63,8 @@ include 'connection.php';
             </div>
         </div>
 
-        <footer>
-            <div class="footerTop">
-                <nav class="footerButtons">
-                    <a class="footerLink" href="index.html">HJEM</a>
-                    <span>|</span>
-                    <a class="footerLink" href="shoes.php">SKOSTØRRELSER</a>
-                    <span>|</span>
-                    <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
-                </nav>
-            </div>
-
-            <div class="footerBottom">
-                <span>&COPY; 2019 Rasmus Nørby</span>
-            </div>
-        </footer>
+        <?php
+        include '../functions/footer.php';
+        ?>
     </body>
 </html>

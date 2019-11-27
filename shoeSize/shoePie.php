@@ -10,23 +10,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM 1_ShoeSize ORDER BY shoeSize DESC";
+$sql = "SELECT shoeSize FROM 1_ShoeSize ORDER BY shoeSize DESC";
 $result = $conn->query($sql);
 ?>
-
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Graf</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Lagkagediagram</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart']});
-            google.charts.setOnLoadCallback(drawGraph);
+            google.charts.setOnLoadCallback(drawPie);
 
             // Function to generate a random color
             function getRandomColor() {
@@ -40,32 +39,74 @@ $result = $conn->query($sql);
             }
 
             // Function to draw the google chart
-            function drawGraph() {
+            function drawPie() {
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Name');
-                data.addColumn('number', 'Skostørrelse');
+                data.addColumn('string', 'Skostørrelse');
+                data.addColumn('number', 'Hyppighed');
                 data.addRows([
-
 <?php
-// Insert the name and shoesize from a database via php
 if (mysqli_num_rows($result) > 0) {
 
-    while ($row = mysqli_fetch_array($result)) {
+    // Create Array
+    $data = array();
 
-        // This is the format that google charts require
-        echo "['" . $row['name'] . "', " . $row['shoeSize'] . "],";
+    // Select the data
+    while ($row = mysqli_fetch_array($result)) {
+        $data[] = $row;
+    }
+
+    // Use the data in a foreach loop
+    foreach ($data as $row) {
+
+        //print_r($row['shoeSize']);
+        // Put each shoeSize into the values array
+        $values[] = $row['shoeSize'];
+
+        //echo "percent";
+        //echo " " . print_r(array_count_values($values)) . " ";
+    }
+    //echo "Values:";
+    //print_r($values);
+    // actually count the amount of each shoesize and put them
+    // into a new array called percent
+    $percent = array_count_values($values);
+
+    // Time to print the data
+    foreach ($data as $row) {
+        // Reset $firstval to the first value in the multidimensional array
+        $firstVal = reset($data);
+
+        //echo $firstVal;
+        // Value equals shoesize
+        $value = $row['shoeSize'];
+
+        // Only print one line for each shoesize
+        // Don't print size 45 if you just printed it.
+        // Otherwise, you'll get two many columns/slices of pie
+        if ($value != $lastVal || $value == $firstVal) {
+            //echo "( $value )";
+            //print_r($percent["$value"]);
+            // Turn the size integer into a string
+            $size = strval($value);
+
+            //echo $size;
+            // Print the values in the format that g-charts require
+            echo "['" . $size . "', " . $percent["$value"] . "],";
+            $lastVal = $value;
+        }
     }
 }
 ?>
                 ]);
-                // Options for the chart
-                var options = {'title': 'Skostørrelse',
-                    'colors': [getRandomColor(), '#228B22']
-                    
+                // Google Charts options
+                var options = {//'title':'Skostørrelse',
+                    'colors': [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
+                    is3D: true,
+                    pieSliceText: 'percentage'
                     // Google Charts defaults to the size of the parent box
-                    /*'width': 1000,
-                    //'height': 500*/};
-                var chart = new google.visualization.ColumnChart(document.getElementById('graph_div'));
+                    /*'width': 100%,
+                    'height': 100%*/};
+                var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
                 chart.draw(data, options);
             }
         </script>
@@ -75,13 +116,13 @@ if (mysqli_num_rows($result) > 0) {
             <div id="sidebar" class="sidebar"></div>
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
+                <a href="../shoeSize/shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
                 <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
                 <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
                 <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
             </div>
         </aside>
-        
+
         <header>
             <div class="topnav">
                 <!-- Sidebar button -->
@@ -92,7 +133,7 @@ if (mysqli_num_rows($result) > 0) {
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
                     <a class="buttons" href="index.html">Hjem</a>
-                    <a class="buttons" href="shoes.php">Skostørrelser</a>
+                    <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
                     <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
@@ -100,26 +141,26 @@ if (mysqli_num_rows($result) > 0) {
                         </div>
                         <div class="dropdown-content">
                             <a href="index.html">Hjem</a>
-                            <a href="shoes.php">Skostørrelser</a>
+                            <a href="../shoeSize/shoes.php">Skostørrelser</a>
                             <a href="hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        
-        <div id="main">
-            <h1>Skostørrelse <a href="pie.php">(Pie)</a></h1>
 
-            <div id="graph_div"></div>
+        <div id="main">
+            <h1>Hyppighed over skostørrelser</h1>
+
+            <div id="pie_div"></div>
         </div>
-        
+
         <footer>
             <div class="footerTop">
                 <nav class="footerButtons">
                     <a class="footerLink" href="index.html">HJEM</a>
                     <span>|</span>
-                    <a class="footerLink" href="shoes.php">SKOSTØRRELSER</a>
+                    <a class="footerLink" href="../shoeSize/shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
                     <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
                 </nav>

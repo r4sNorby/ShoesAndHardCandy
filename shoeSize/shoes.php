@@ -9,14 +9,14 @@ and open the template in the editor.
         <title>Skostørrelse</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="sidebar.js"></script>
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <?php 
         include 'shoeSidebar.php';
-        include 'header.php';
+        include '../functions/header.php';
         ?>
 
         <div id="main">
@@ -38,6 +38,6 @@ and open the template in the editor.
             <p>Test of the <a href="shoeInsert_redirect.html">redirect</a> function</p>
         </div>
 
-        <?php include 'footer.php'?>
+        <?php include '../functions/footer.php';?>
     </body>
 </html>
