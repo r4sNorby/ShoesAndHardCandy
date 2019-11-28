@@ -1,7 +1,7 @@
 <?php
 
 // INSERT METHOD
-// Generate SQL
+// Generate Prepared Statement
 function preparedStatement($DBattribute, $tableName, $attribute, $conn) {
     $sql = "INSERT INTO $tableName ($DBattribute)
                VALUES (?)";

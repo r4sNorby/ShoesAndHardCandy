@@ -76,8 +76,8 @@ if (mysqli_num_rows($result) > 0) {
             <div id="sidebarbuttons" class="sidebarbuttons">
                 <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
                 <a href="../shoeSize/shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
-                <a href="shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-                <a href="shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
+                <a href="../shoeSize/shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
+                <a href="../shoeSize/shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
                 <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
             </div>
         </aside>
@@ -91,17 +91,17 @@ if (mysqli_num_rows($result) > 0) {
 
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
-                    <a class="buttons" href="index.html">Hjem</a>
+                    <a class="buttons" href="index.php">Hjem</a>
                     <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
+                    <a class="buttons" href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
                             <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
-                            <a href="index.html">Hjem</a>
+                            <a href="index.php">Hjem</a>
                             <a href="../shoeSize/shoes.php">Skostørrelser</a>
-                            <a href="hardCandy.php">Birger Bolcher</a>
+                            <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>
@@ -117,11 +117,11 @@ if (mysqli_num_rows($result) > 0) {
         <footer>
             <div class="footerTop">
                 <nav class="footerButtons">
-                    <a class="footerLink" href="index.html">HJEM</a>
+                    <a class="footerLink" href="index.php">HJEM</a>
                     <span>|</span>
                     <a class="footerLink" href="../shoeSize/shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
-                    <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
+                    <a class="footerLink" href="../hardCandy/hardCandy.php">BIRGER BOLCHER</a>
                 </nav>
             </div>
 

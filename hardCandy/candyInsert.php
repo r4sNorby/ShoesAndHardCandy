@@ -5,60 +5,67 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include '../functions/connection.php';
+include_once '../functions/connection.php';
+include_once '../function/candyFunctions.php'
 ?>
 
 <html>
     <head>
+        <title>Indsætter nyt bolche</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Indsætter nyt bolche</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <?php
-        $name = filter_input(INPUT_POST, "name");
-        $color_id = filter_input(INPUT_POST, "color_id");
-        $weight = filter_input(INPUT_POST, "weight");
-        $sourness_id = filter_input(INPUT_POST, "sourness_id");
-        $tasteStrength_id = filter_input(INPUT_POST, "strength_id");
-        $tasteType_id = filter_input(INPUT_POST, "type_id");
-        $price = filter_input(INPUT_POST, "price");
+        include_once '../hardCandy/candySidebar.php';
+        include_once '../functions/header.php';
+        ?>
+        <div id="main">
+            <?php
+            $name = filter_input(INPUT_POST, "name");
+            $color_id = filter_input(INPUT_POST, "color_id");
+            $weight = filter_input(INPUT_POST, "weight");
+            $sourness_id = filter_input(INPUT_POST, "sourness_id");
+            $tasteStrength_id = filter_input(INPUT_POST, "strength_id");
+            $tasteType_id = filter_input(INPUT_POST, "type_id");
+            $price = filter_input(INPUT_POST, "price");
 
-        //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
+            if (isset($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price)) {
 
-        $sql = "INSERT INTO 1_HardCandy (name, color_id, weight, sourness_id, tasteStrength_id, tasteType_id, price)
-               VALUES (?, ?, ?, ?, ?, ?, ?)";
+                //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
 
-        // Prepared statement
-        $stmt = $conn->prepare($sql);
+                $stmt = preparedStatement($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
+                echo "hej";
+                
+                $result = checkInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
+                // Print the result
+                //print_r($result);
 
-        // Bind to values from form. The form posts the names of the inputs.
-        // Remember to the change the values below if you change the datatype.
-        $stmt->bind_param("siiiiii", $name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price);
-
-        $check = "SELECT * FROM 1_HardCandy WHERE name = '$name' AND color_id = '$color_id' AND weight = '$weight' AND sourness_id = '$sourness_id' AND tasteStrength_id = '$tasteStrength_id' AND tasteType_id = '$tasteType_id' AND price = '$price'";
-        $result = $conn->query($check);
-        // Print the result
-        //print_r($result);
-
-        if ($result->num_rows < 1) {
-            // Execute statement and check if it was successful
-            if ($stmt->execute()) {
-                // !!Redirect to candyList.php after submitting form!!
-                header('refresh:0; url=candyList.php');
+                if ($result->num_rows < 1) {
+                    // Execute statement and check if it was successful
+                    if ($stmt->execute()) {
+                        // !!Redirect to candyList.php after submitting form!!
+                        header('refresh:0; url=candyList.php');
+                        echo "<p>You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a></p>";
+                    } else {
+                        // Or display error
+                        echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error . "<br>";
+                    }
+                } else {
+                    echo "Candy already exists!";
+                }
             } else {
-                // Or display error
-                echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
+                echo "No values where chosen!";
             }
-            // Always echo this
-            echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
-        } else {
-            echo "Candy already exists!";
-        }
-
+            ?>
+        </div>
+        <?php
+        include_once '../functions/footer.php';
         $stmt->close();
         $conn->close();
         ?>
-        <br>
     </body>
 </html>

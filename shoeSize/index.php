@@ -10,8 +10,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../style.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="../functions/sidebar.js"></script>
     </head>
     <body>
         <header>
@@ -21,17 +19,17 @@ and open the template in the editor.
 
                 <!-- Header Buttons-->
                 <div class='headerButtons'>
-                    <a class="buttons" href="index.html">Hjem</a>
+                    <a class="buttons" href="../shoeSize/index.php">Hjem</a>
                     <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
+                    <a class="buttons" href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
                             <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
-                            <a href="index.html">Hjem</a>
+                            <a href="../shoeSize/index.php">Hjem</a>
                             <a href="../shoeSize/shoes.php">Skostørrelser</a>
-                            <a href="hardCandy.php">Birger Bolcher</a>
+                            <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>
@@ -44,11 +42,13 @@ and open the template in the editor.
                     <a href="../shoeSize/shoes.php">Skostørrelse</a>
                 </div>
                 <div class="link">
-                    <a href="hardCandy.php">Birger Bolcher</a>
+                    <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                 </div>
             </div>
         </div>
 
-        <?php include '../functions/footer.php';?>
+        <?php         include_once '../functions/footer.php';
+        $stmt->close();
+        $conn->close();?>
     </body>
 </html>

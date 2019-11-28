@@ -1,4 +1,4 @@
-<?php include '../functions/connection.php'; ?>
+<?php include_once '../functions/connection.php'; ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -10,8 +10,8 @@
     </head>
     <body>
         <?php
-        include '../hardCandy/candySidebar.php';
-        include '../functions/header.php';
+        include_once '../hardCandy/candySidebar.php';
+        include_once '../functions/header.php';
         ?>
 
         <div id="main">
@@ -198,6 +198,8 @@
             </div>
         </div>
 
-        <?php include '../functions/footer.php'; ?>
+        <?php         include_once '../functions/footer.php';
+        $stmt->close();
+        $conn->close(); ?>
     </body>
 </html>

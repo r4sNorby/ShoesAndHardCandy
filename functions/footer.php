@@ -2,11 +2,11 @@
 echo '<footer>
             <div class="footerTop">
                 <nav class="footerButtons">
-                    <a class="footerLink" href="../index.php">HJEM</a>
+                    <a class="footerLink" href="../shoeSize/index.php">HJEM</a>
                     <span>|</span>
                     <a class="footerLink" href="../shoeSize/shoes.php">SKOSTØRRELSER</a>
                     <span>|</span>
-                    <a class="footerLink" href="hardCandy.php">BIRGER BOLCHER</a>
+                    <a class="footerLink" href="../hardCandy/hardCandy.php">BIRGER BOLCHER</a>
                 </nav>
             </div>
 

@@ -8,17 +8,17 @@ echo '<header>
 
                 <!-- Header Buttons-->
                 <div class="headerButtons">
-                    <a class="buttons" href="../index.php">Hjem</a>
+                    <a class="buttons" href="../shoeSize/index.php">Hjem</a>
                     <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
-                    <a class="buttons" href="hardCandy.php">Birger Bolcher</a>
+                    <a class="buttons" href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                     <div class="dropbtn">
                         <div class="droptxt">
                             <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
                         </div>
                         <div class="dropdown-content">
-                            <a href="../index.php">Hjem</a>
+                            <a href="../shoeSize/index.php">Hjem</a>
                             <a href="../shoeSize/shoes.php">Skostørrelser</a>
-                            <a href="hardCandy.php">Birger Bolcher</a>
+                            <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                         </div>
                     </div>
                 </div>

@@ -15,8 +15,8 @@ and open the template in the editor.
     </head>
     <body>
         <?php 
-        include 'shoeSidebar.php';
-        include '../functions/header.php';
+        include_once 'shoeSidebar.php';
+        include_once '../functions/header.php';
         ?>
 
         <div id="main">
@@ -34,10 +34,10 @@ and open the template in the editor.
                 <input type="number" min="1" max="55" name="shoeSize" placeholder="40" required><br>
                 <input type="submit" name="submit" value="Indsæt">
             </form>
-            <br>
-            <p>Test of the <a href="shoeInsert_redirect.html">redirect</a> function</p>
         </div>
 
-        <?php include '../functions/footer.php';?>
+        <?php         include_once '../functions/footer.php';
+        $stmt->close();
+        $conn->close();?>
     </body>
 </html>

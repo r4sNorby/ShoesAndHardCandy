@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include '../functions/connection.php';
+include_once '../functions/connection.php';
 ?>
 <html>
     <head>
@@ -18,9 +18,9 @@ include '../functions/connection.php';
     </head>
     <body>
         <?php
-        include '../hardCandy/candySidebar.php';
+        include_once '../hardCandy/candySidebar.php';
 
-        include '../functions/header.php';
+        include_once '../functions/header.php';
         ?>
 
         <div id="main">
@@ -98,10 +98,10 @@ include '../functions/connection.php';
 
                 <input type="submit" name="submit" value="Indsæt">
             </form>
-            <br>
-            <p>Test of the <a href="candyInsert_redirect.html">redirect</a> function</p>
         </div>
 
-        <?php include '../functions/footer.php'; ?>
+        <?php         include_once '../functions/footer.php';
+        $stmt->close();
+        $conn->close(); ?>
     </body>
 </html>

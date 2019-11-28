@@ -5,8 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include '../functions/connection.php';
-include 'attributeMethods.php';
+include_once '../functions/connection.php';
+include_once '../functions/attributeFunctions.php';
 ?>
 <html>
     <head>
@@ -19,8 +19,8 @@ include 'attributeMethods.php';
     </head>
     <body>
         <?php
-        include '../hardCandy/candySidebar.php';
-        include '../functions/header.php';
+        include_once '../hardCandy/candySidebar.php';
+        include_once '../functions/header.php';
         ?>
         <div id="main">
             <?php
@@ -89,7 +89,7 @@ include 'attributeMethods.php';
                     } else {
                         echo "Error deleting record: " . $stmt->error;
                     }
-                    // Always echo this
+                    // Always echo this if results where found
                     echo "You should be redirecting in 1 second. If not, please click <a href='$redirect.php'>redirect</a>";
                 } else {
                     echo "<p>Attribute is in use on $result->num_rows piece(s) of candy!</p>";
@@ -104,12 +104,13 @@ include 'attributeMethods.php';
                         }
                     }
                 }
-
-                $stmt->close();
-                $conn->close();
                 ?>
             </div>
         </div>
-        <?php include '../functions/footer.php'; ?>
+        <?php
+        include_once '../functions/footer.php';
+        $stmt->close();
+        $conn->close();
+        ?>
     </body>
 </html>
