@@ -48,7 +48,7 @@ include_once 'function/candyFunctions.php'
                 // Print the result
                 print_r($result);
                 
-                echo "This too";
+                echo "This works";
                 
                 if ($result->num_rows < 1) {
                     // Execute statement and check if it was successful

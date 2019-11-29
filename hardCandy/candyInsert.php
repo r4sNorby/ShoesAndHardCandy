@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <?php
 include_once '../functions/connection.php';
-include_once '../function/candyFunctions.php'
+include_once '../functions/candyFunctions.php'
 ?>
 
 <html>
@@ -37,8 +37,7 @@ include_once '../function/candyFunctions.php'
 
                 //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
 
-                $stmt = preparedStatement($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
-                echo "hej";
+                $stmt = preparedInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
                 
                 $result = checkInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
                 // Print the result

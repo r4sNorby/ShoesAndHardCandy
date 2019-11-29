@@ -6,6 +6,7 @@ and open the template in the editor.
 -->
 <?php
 include_once '../functions/connection.php';
+include_once '../functions/candyFunctions.php';
 ?>
 <html>
     <head>
@@ -39,13 +40,7 @@ include_once '../functions/connection.php';
                 for ($i = 0; $i < count($id); $i++) {
                     $del_id = $id[$i];
 
-                    $sql = "DELETE FROM 1_HardCandy WHERE id = ?";
-
-                    // Prepared statement
-                    $stmt = $conn->prepare($sql);
-
-                    // Bind to values from form
-                    $stmt->bind_param("i", $del_id);
+                    $stmt = preparedDelete($conn, $del_id);
 
                     if ($stmt->execute()) {
                         header('refresh:0; url=candyList.php');

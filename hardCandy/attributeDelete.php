@@ -60,14 +60,8 @@ include_once '../functions/attributeFunctions.php';
             // For each id that was checked, delete that row
             for ($i = 0; $i < count($id); $i++) {
                 $del_id = $id[$i];
-
-                $sql = "DELETE FROM $tableName WHERE $DBId = ?";
-
-                // Prepared statement
-                $stmt = $conn->prepare($sql);
-
-                // Bind to values from form
-                $stmt->bind_param("i", $del_id);
+                
+                $stmt = preparedDelete($tableName, $DBId, $conn, $del_id);
 
                 // Don't delete any attributes we are using
                 $result = checkDelete($del_id, $DBId, $tableName, $conn);

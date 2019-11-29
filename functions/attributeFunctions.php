@@ -2,7 +2,7 @@
 
 // INSERT METHOD
 // Generate Prepared Statement
-function preparedStatement($DBattribute, $tableName, $attribute, $conn) {
+function preparedInsert($DBattribute, $tableName, $attribute, $conn) {
     $sql = "INSERT INTO $tableName ($DBattribute)
                VALUES (?)";
 
@@ -25,6 +25,18 @@ function checkInsert($attribute, $tableName, $DBAttribute, $conn) {
 }
 
 // DELETE METHOD
+
+function preparedDelete($tableName, $DBId, $conn, $del_id) {
+    $sql = "DELETE FROM $tableName WHERE $DBId = ?";
+
+    // Prepared statement
+    $stmt = $conn->prepare($sql);
+
+    // Bind to values from form
+    $stmt->bind_param("i", $del_id);
+    return $stmt;
+}
+
 // Are there any hard candy with the attributes we are deleting?
 function checkDelete($del_id, $DBId, $tableName, $conn) {
     // Check query if attribute exists in database.
@@ -35,7 +47,7 @@ function checkDelete($del_id, $DBId, $tableName, $conn) {
             INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id 
             WHERE $tableName.$DBId = $del_id
             ORDER BY id";
-    
+
     $result = $conn->query($check);
     return $result;
 }

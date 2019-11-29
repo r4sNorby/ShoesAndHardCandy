@@ -55,7 +55,7 @@ include_once '../functions/attributeFunctions.php';
 
             if (isset($attribute, $DBattribute, $tableName, $redirect)) {
 
-                $stmt = preparedStatement($DBattribute, $tableName, $attribute, $conn);
+                $stmt = preparedInsert($DBattribute, $tableName, $attribute, $conn);
                 $result = checkInsert($attribute, $tableName, $DBattribute, $conn);
                 // Print the result
                 //print_r($result);
