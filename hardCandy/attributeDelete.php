@@ -61,10 +61,10 @@ include_once '../functions/attributeFunctions.php';
             for ($i = 0; $i < count($id); $i++) {
                 $del_id = $id[$i];
                 
-                $stmt = preparedDelete($tableName, $DBId, $conn, $del_id);
+                $stmt = preparedAttDelete($tableName, $DBId, $conn, $del_id);
 
                 // Don't delete any attributes we are using
-                $result = checkDelete($del_id, $DBId, $tableName, $conn);
+                $result = checkAttDelete($del_id, $DBId, $tableName, $conn);
 
                 if ($result->num_rows < 1) {
                     if ($stmt->execute()) {

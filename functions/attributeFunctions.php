@@ -2,7 +2,7 @@
 
 // INSERT METHOD
 // Generate Prepared Statement
-function preparedInsert($DBattribute, $tableName, $attribute, $conn) {
+function preparedAttInsert($DBattribute, $tableName, $attribute, $conn) {
     $sql = "INSERT INTO $tableName ($DBattribute)
                VALUES (?)";
 
@@ -16,7 +16,7 @@ function preparedInsert($DBattribute, $tableName, $attribute, $conn) {
     return $stmt;
 }
 
-function checkInsert($attribute, $tableName, $DBAttribute, $conn) {
+function checkAttInsert($attribute, $tableName, $DBAttribute, $conn) {
     // Check query if attribute exists in database.
     $check = "SELECT * FROM $tableName WHERE $DBAttribute = '$attribute'";
 
@@ -26,7 +26,7 @@ function checkInsert($attribute, $tableName, $DBAttribute, $conn) {
 
 // DELETE METHOD
 
-function preparedDelete($tableName, $DBId, $conn, $del_id) {
+function preparedAttDelete($tableName, $DBId, $conn, $del_id) {
     $sql = "DELETE FROM $tableName WHERE $DBId = ?";
 
     // Prepared statement
@@ -38,7 +38,7 @@ function preparedDelete($tableName, $DBId, $conn, $del_id) {
 }
 
 // Are there any hard candy with the attributes we are deleting?
-function checkDelete($del_id, $DBId, $tableName, $conn) {
+function checkAttDelete($del_id, $DBId, $tableName, $conn) {
     // Check query if attribute exists in database.
     $check = "SELECT * FROM 1_HardCandy 
             INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id 

@@ -15,6 +15,7 @@ include_once '../functions/connection.php';
         <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="../functions/sidebar.js"></script>
+        <script src="../snow.js"></script>
     </head>
     <body>
         <?php

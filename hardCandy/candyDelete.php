@@ -40,15 +40,14 @@ include_once '../functions/candyFunctions.php';
                 for ($i = 0; $i < count($id); $i++) {
                     $del_id = $id[$i];
 
-                    $stmt = preparedDelete($conn, $del_id);
+                    $stmt = preparedCandyDelete($conn, $del_id);
 
                     if ($stmt->execute()) {
                         header('refresh:0; url=candyList.php');
+                        echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
                     } else {
                         echo "Error deleting record: " . $conn->error;
                     }
-                    // Always echo this
-                    echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
                 }
             } else {
                 echo "No checkboxes were checked!";

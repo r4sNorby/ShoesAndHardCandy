@@ -2,7 +2,7 @@
 
 // INSERT METHOD
 // Generate Prepared Statement
-function preparedInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn) {
+function preparedCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn) {
     $sql = "INSERT INTO 1_HardCandy (name, color_id, weight, sourness_id, tasteStrength_id, tasteType_id, price)
                VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -16,7 +16,7 @@ function preparedInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_
     return $stmt;
 }
 
-function checkInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn) {
+function checkCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn) {
     // Check query if attribute exists in database.
     $check = "SELECT * FROM 1_HardCandy WHERE name = '$name' AND color_id = '$color_id' AND weight = '$weight' AND sourness_id = '$sourness_id' AND tasteStrength_id = '$tasteStrength_id' AND tasteType_id = '$tasteType_id' AND price = '$price'";
     $result = $conn->query($check);
@@ -26,7 +26,7 @@ function checkInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id,
 
 // DELETE METHOD
 
-function preparedDelete($conn, $del_id) {
+function preparedCandyDelete($conn, $del_id) {
 
     $sql = "DELETE FROM 1_HardCandy WHERE id = ?";
 

@@ -4,63 +4,56 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include_once '../functions/connection.php';
+include_once '../functions/shoeFunctions.php';
+?>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="../functions/sidebar.js"></script>
         <title>Indsætter ny bruger</title>
     </head>
     <body>
         <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
+        include_once '../shoeSize/shoeSidebar.php';
+        include_once '../functions/header.php';
+        ?>
+        <div id="main">
+            <?php
+            $name = filter_input(INPUT_POST, 'name');
+            $email = filter_input(INPUT_POST, 'email');
+            $dateOfBirth = filter_input(INPUT_POST, 'dateOfBirth');
+            $shoeSize = filter_input(INPUT_POST, 'shoeSize');
 
-        $name = filter_input(INPUT_POST, 'name');
-        $email = filter_input(INPUT_POST, 'email');
-        $dateOfBirth = filter_input(INPUT_POST, 'dateOfBirth');
-        $shoeSize = filter_input(INPUT_POST, 'shoeSize');
+            $stmt = preparedShoeInsert($name, $email, $dateOfBirth, $shoeSize, $conn);
+            $result = checkShoeInsert($name, $email, $shoeSize, $conn);
 
-        $conn = new mysqli($servername, $username, $password, $db_name);
+            // Print the result
+            //print_r($result);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // 1_ShoeSize fordi det er efter første hovedforløb
-        $sql = "INSERT INTO 1_ShoeSize (name, email, dateOfBirth, shoeSize)
-               VALUES (?, ?, ?, ?)";
-
-        // Prepared statement
-        $stmt = $conn->prepare($sql);
-        // Bind to values from form. The form posts the names of the inputs.
-        // Remember to the change the values below if you change the datatype.
-        $stmt->bind_param("sssi", $name, $email, $dateOfBirth, $shoeSize);
-
-        $check = "SELECT * FROM 1_ShoeSize WHERE name = '$name' AND email = '$email' AND shoeSize = '$shoeSize'";
-        $result = $conn->query($check);
-        // Print the result
-        //print_r($result);
-
-        if ($result->num_rows < 1) {
-            // Execute statement and check if it was successful
-            if ($stmt->execute()) {
-                // !!Redirect to list.php after submitting form!!
-                header('refresh:0; url=shoeGraph.php');
+            if ($result->num_rows < 1) {
+                // Execute statement and check if it was successful
+                if ($stmt->execute()) {
+                    // !!Redirect to list.php after submitting form!!
+                    header('refresh:0; url=shoeGraph.php');
+                    echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
+                } else {
+                    // Or display error
+                    echo $stmt->error;
+                }
             } else {
-                // Or display error
-                echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
+                echo "User already exists!";
             }
-            // Always echo this
-            echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
-        } else {
-            echo "User already exists!";
-        }
-
+            ?>
+        </div>
+        <?php
+        include_once '../functions/footer.php';
         $stmt->close();
         $conn->close();
         ?>
-        <br>
     </body>
 </html>

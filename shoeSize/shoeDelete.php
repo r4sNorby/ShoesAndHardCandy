@@ -4,59 +4,56 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include_once '../functions/connection.php';
+include_once '../functions/shoeFunctions.php';
+?>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="../functions/sidebar.js"></script>
         <title>Sletter bruger</title>
     </head>
-    <body>
+    <body><?php
+        include_once '../shoeSize/shoeSidebar.php';
+        include_once '../functions/header.php';
+        ?>
+        <div id="main">
+            <?php
+            // Get the id from the form
+            //WHY DOES FILTER_INPUT NOT WORK!!!???
+            $id = $_POST['id'];
 
-        <?php
-        $servername = "localhost";
-        $username = "xran39.skp-dp";
-        $password = "k452ppy3";
-        $db_name = "xran39_skp_dp_sde_dk";
+            //Print array values
+            /* foreach($id as $id){
+              echo $id[0];
+              } */
+            // Was the delete button pressed while a checkbox was checked?
+            if (isset($id)) {
 
-        // Get the id from the form
-        //WHY DOES FILTER_INPUT NOT WORK!!!???
-        $id = $_POST['id'];
+                // For each id that was checked, delete that row
+                for ($i = 0; $i < count($id); $i++) {
+                    $del_id = $id[$i];
 
-        $conn = new mysqli($servername, $username, $password, $db_name);
+                    $stmt = preparedShoeDelete($conn, $del_id);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        //Print array values
-        /* foreach($id as $id){
-          echo $id[0];
-          } */
-        // Was the delete button pressed while a checkbox was checked?
-        if (isset($id)) {
-
-            // For each id that was checked, delete that row
-            for ($i = 0; $i < count($id); $i++) {
-                $del_id = $id[$i];
-
-                // Prepared statement
-                $stmt = $conn->prepare("DELETE FROM 1_ShoeSize WHERE id = ?");
-
-                // Bind to values from form
-                $stmt->bind_param("i", $del_id);
-
-                if ($stmt->execute()) {
-                    header('refresh:0; url=shoeGraph.php');
-                } else {
-                    echo "Error deleting record: " . $conn->error;
+                    if ($stmt->execute()) {
+                        header('refresh:0; url=shoeGraph.php');
+                        echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
+                    } else {
+                        echo "Error deleting record: " . $conn->error;
+                    }
                 }
-                // Always echo this
-                echo "You should be redirecting in 1 second. If not, please click <a href='shoeGraph.php'>redirect</a>";
+            } else {
+                echo "No checkboxes were checked!";
             }
-        } else {
-            echo "No checkboxes were checked!";
-        }
-
+            ?>
+        </div>
+        <?php
+        include_once '../functions/footer.php';
         $stmt->close();
         $conn->close();
         ?>
