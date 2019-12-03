@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../style.css">
+        <script src="../snow.js"></script>
     </head>
     <body>
         <header>
@@ -35,20 +36,28 @@ and open the template in the editor.
                 </div>
             </div>
         </header>
-
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
         <div id="main">
             <div class="flex-container">
-                <div class="link">
-                    <a href="../shoeSize/shoes.php">Skostørrelse</a>
+                <div class="left">
+                    <div class="link">
+                        <a href="../shoeSize/shoes.php">Skostørrelse</a>
+                    </div>
                 </div>
-                <div class="link">
-                    <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
+                <div class="right">
+                    <div class="link">
+                        <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <?php         include_once '../functions/footer.php';
+        <?php
+        include_once '../functions/footer.php';
         $stmt->close();
-        $conn->close();?>
+        $conn->close();
+        ?>
     </body>
 </html>

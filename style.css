@@ -106,11 +106,6 @@ body {
     align-items: center;
 }
 
-.flex-container {
-    height: 100%;
-
-}
-
 /* Header */
 header {
     z-index: 2;
@@ -193,6 +188,25 @@ content to the right when you open the side navigation */
     justify-content: center;
     align-items: center;
     flex: 1;
+    background-color: #000020;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    min-height: 100%;
+    width: 100%
+}
+
+.left .right {
+    margin: 5px;
+    width: 50%;
+}
+
+.link {
+    
 }
 
 .list {
@@ -323,4 +337,23 @@ style of the sidenav (less padding and a smaller font size) */
     flex-grow: 1;
     justify-content: center;
     align-self: center;
+}
+
+
+#snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+}
+
+.snowflake {
+    position: fixed;
+    background-color: #CCC;
+    user-select: none;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
 }

@@ -1,6 +1,21 @@
 body {
-    
+    color: white;
     background-color: #000020;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 10px;
+}
+
+p {
+    margin: 0;
 }
 
 #snowflakeContainer {
@@ -8,9 +23,9 @@ body {
     left: 0px;
     top: 0px;
     display: none;
-  }
+}
 
-  .snowflake {
+.snowflake {
     position: fixed;
     background-color: #CCC;
     user-select: none;
@@ -19,4 +34,4 @@ body {
     border-radius: 50%;
     width: 10px;
     height: 10px;
-  }
+}
