@@ -36,9 +36,11 @@ and open the template in the editor.
                 </div>
             </div>
         </header>
+
         <div id="snowflakeContainer">
             <span class="snowflake"></span>
         </div>
+
         <div id="main">
             <div class="flex-container">
                 <div class="left">
@@ -51,6 +53,9 @@ and open the template in the editor.
                         <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
                     </div>
                 </div>
+            </div>
+            <div class="link">
+                <a href="../shoeSize/letItSnow.php">Merry Christmas</a>
             </div>
         </div>
 

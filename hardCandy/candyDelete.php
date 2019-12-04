@@ -23,36 +23,38 @@ include_once '../functions/candyFunctions.php';
         include_once '../functions/header.php';
         ?>
         <div id="main">
-            <?php
-            // Get the id from the form
-            //WHY DOES FILTER_INPUT NOT WORK!!!???
-            $id = $_POST['id'];
+            <div id="content">
+                <?php
+                // Get the id from the form
+                //WHY DOES FILTER_INPUT NOT WORK!!!???
+                $id = $_POST['id'];
 
 
-            //Print array values
-            /* foreach($id as $id){
-              echo $id[0];
-              } */
-            // Was the delete button pressed while a checkbox was checked?
-            if (isset($id)) {
+                //Print array values
+                /* foreach($id as $id){
+                  echo $id[0];
+                  } */
+                // Was the delete button pressed while a checkbox was checked?
+                if (isset($id)) {
 
-                // For each id that was checked, delete that row
-                for ($i = 0; $i < count($id); $i++) {
-                    $del_id = $id[$i];
+                    // For each id that was checked, delete that row
+                    for ($i = 0; $i < count($id); $i++) {
+                        $del_id = $id[$i];
 
-                    $stmt = preparedCandyDelete($conn, $del_id);
+                        $stmt = preparedCandyDelete($conn, $del_id);
 
-                    if ($stmt->execute()) {
-                        header('refresh:0; url=candyList.php');
-                        echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
-                    } else {
-                        echo "Error deleting record: " . $conn->error;
+                        if ($stmt->execute()) {
+                            header('refresh:0; url=candyList.php');
+                            echo "You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a>";
+                        } else {
+                            echo "Error deleting record: " . $conn->error;
+                        }
                     }
+                } else {
+                    echo "No checkboxes were checked!";
                 }
-            } else {
-                echo "No checkboxes were checked!";
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <?php
         include_once '../functions/footer.php';

@@ -181,6 +181,7 @@ header {
 /* Style page content - use this if you want to push the page
 content to the right when you open the side navigation */
 #main {
+    background-color: grey;
     transition: margin-left .5s; /* If you want a transition effect */
     padding: 50px;
     display: flex;
@@ -188,7 +189,13 @@ content to the right when you open the side navigation */
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: #000020;
+}
+
+#content {
+    border: 1px solid;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 5px 7px #444;
 }
 
 .flex-container {
@@ -196,17 +203,31 @@ content to the right when you open the side navigation */
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    min-height: 100%;
-    width: 100%
+    flex-grow: 1;
+    width: 100%;
+    background-color: grey;
 }
 
-.left .right {
+.left, .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
     margin: 5px;
     width: 50%;
+    min-height: 100%;
 }
 
-.link {
-    
+.link a {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-shadow: 10px 10px black;
+    transition: 0.5s;
+    transform: translate(10px, 10px);
 }
 
 .list {
@@ -294,7 +315,7 @@ style of the sidenav (less padding and a smaller font size) */
     .sidebar {width: 40px;}
     .sidebar a {font-size: 20px;}
     .sidebar a i {font-size: 20px;}
-    
+
     .sidebarbuttons {width: 40px;}
     .sidebarbuttons a {font-size: 20px;}
     .sidebarbuttons a i {font-size: 20px;}
@@ -305,10 +326,10 @@ style of the sidenav (less padding and a smaller font size) */
     .dropbtn {display: flex;}
 
     .footerTop {font-size: 12px;}
-    
+
     #graph_div {width: 200px; height: 150px}
     #pie_div {width: 200px; height: 150px}
-    
+
     #main {font-size: 15px;}
     h1 {font-size: 18px;}
 }
@@ -316,8 +337,8 @@ style of the sidenav (less padding and a smaller font size) */
 @media screen and (min-width: 650px) {
     .sidebar {width: 45px;}
     .sidebarbuttons {width: 45px;}
-    
-    
+
+
     /*#graph_div {width: 1000px; height: 400px}
     #pie_div {width: 1000px; height: 400px}*/
 }

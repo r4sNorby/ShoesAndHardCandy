@@ -61,10 +61,10 @@ if (mysqli_num_rows($result) > 0) {
                 // Options for the chart
                 var options = {'title': 'Skostørrelse',
                     'colors': [getRandomColor(), '#228B22']
-                    
-                    // Google Charts defaults to the size of the parent box
-                    /*'width': 1000,
-                    //'height': 500*/};
+
+                            // Google Charts defaults to the size of the parent box
+                            /*'width': 1000,
+                             //'height': 500*/};
                 var chart = new google.visualization.ColumnChart(document.getElementById('graph_div'));
                 chart.draw(data, options);
             }
@@ -81,7 +81,7 @@ if (mysqli_num_rows($result) > 0) {
                 <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
             </div>
         </aside>
-        
+
         <header>
             <div class="topnav">
                 <!-- Sidebar button -->
@@ -107,13 +107,15 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
             </div>
         </header>
-        
-        <div id="main">
-            <h1>Skostørrelse <a href="pie.php">(Pie)</a></h1>
 
-            <div id="graph_div"></div>
+        <div id="main">
+            <div id="content">
+                <h1>Skostørrelse <a href="pie.php">(Pie)</a></h1>
+
+                <div id="graph_div"></div>
+            </div>
         </div>
-        
+
         <footer>
             <div class="footerTop">
                 <nav class="footerButtons">

@@ -24,42 +24,44 @@ include_once '../functions/candyFunctions.php'
         include_once '../functions/header.php';
         ?>
         <div id="main">
-            <?php
-            $name = filter_input(INPUT_POST, "name");
-            $color_id = filter_input(INPUT_POST, "color_id");
-            $weight = filter_input(INPUT_POST, "weight");
-            $sourness_id = filter_input(INPUT_POST, "sourness_id");
-            $tasteStrength_id = filter_input(INPUT_POST, "strength_id");
-            $tasteType_id = filter_input(INPUT_POST, "type_id");
-            $price = filter_input(INPUT_POST, "price");
+            <div id="content">
+                <?php
+                $name = filter_input(INPUT_POST, "name");
+                $color_id = filter_input(INPUT_POST, "color_id");
+                $weight = filter_input(INPUT_POST, "weight");
+                $sourness_id = filter_input(INPUT_POST, "sourness_id");
+                $tasteStrength_id = filter_input(INPUT_POST, "strength_id");
+                $tasteType_id = filter_input(INPUT_POST, "type_id");
+                $price = filter_input(INPUT_POST, "price");
 
-            if (isset($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price)) {
+                if (isset($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price)) {
 
-                //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
+                    //echo "Name: " .$name. " - Color: " . $color_id . " - Weight: " . $weight . " - Sourness: " . $sourness_id . " - Strength: " . $tasteStrength_id . " - Type: " . $tasteType_id . " - Price: " . $price . "<br>";
 
-                $stmt = preparedCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
-                
-                $result = checkCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
-                // Print the result
-                //print_r($result);
+                    $stmt = preparedCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
 
-                if ($result->num_rows < 1) {
-                    // Execute statement and check if it was successful
-                    if ($stmt->execute()) {
-                        // !!Redirect to candyList.php after submitting form!!
-                        header('refresh:0; url=candyList.php');
-                        echo "<p>You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a></p>";
+                    $result = checkCandyInsert($name, $color_id, $weight, $sourness_id, $tasteStrength_id, $tasteType_id, $price, $conn);
+                    // Print the result
+                    //print_r($result);
+
+                    if ($result->num_rows < 1) {
+                        // Execute statement and check if it was successful
+                        if ($stmt->execute()) {
+                            // !!Redirect to candyList.php after submitting form!!
+                            header('refresh:0; url=candyList.php');
+                            echo "<p>You should be redirecting in 1 second. If not, please click <a href='candyList.php'>redirect</a></p>";
+                        } else {
+                            // Or display error
+                            echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error . "<br>";
+                        }
                     } else {
-                        // Or display error
-                        echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error . "<br>";
+                        echo "Candy already exists!";
                     }
                 } else {
-                    echo "Candy already exists!";
+                    echo "No values where chosen!";
                 }
-            } else {
-                echo "No values where chosen!";
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <?php
         include_once '../functions/footer.php';

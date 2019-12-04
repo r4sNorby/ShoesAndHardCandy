@@ -24,48 +24,52 @@ include_once '../functions/connection.php';
         ?>
 
         <div id="main">
-            <h1>Indsæt Smagsstyrke</h1>
+            <div id="content">
+                <h1>Indsæt Smagsstyrke</h1>
 
-            <!--Strength-->
-            <form action="attributeInsert.php" method="post">
-                <label>Smagsstyrke: </label>
-                <input type="text" name="strength" required><br>                
-                <input type="submit" name="submit" value="Indsæt">
-            </form>
-            <br>
-
-            <div class="list">
-                <form action="attributeDelete.php" method="post">
-                    <?php
-                    $sql = "SELECT * FROM 1_tasteStrength";
-
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            ?>
-                            <!-- Adding a checkbox before each row -->
-                            <p class='listItems'>
-                                <input type="checkbox" name="strengthId[]" value="<?php echo $row["tasteStrength_id"]; ?>">
-                                <?php
-                                echo $row["tasteStrength_id"] . " - " . $row["tasteStrength"] . "</p>";
-                            }
-                            ?>
-                            <!-- Submit button for deleting rows -->
-                            <input type="submit" id='delete' name="delete" value="Delete">
-                            <?php
-                        } else {
-                            echo "Database empty" . $conn->error;
-                        }
-
-                        $conn->close();
-                        ?>
+                <!--Strength-->
+                <form action="attributeInsert.php" method="post">
+                    <label>Smagsstyrke: </label>
+                    <input type="text" name="strength" required><br>                
+                    <input type="submit" name="submit" value="Indsæt">
                 </form>
+                <br>
+
+                <div class="list">
+                    <form action="attributeDelete.php" method="post">
+                        <?php
+                        $sql = "SELECT * FROM 1_tasteStrength";
+
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                ?>
+                                <!-- Adding a checkbox before each row -->
+                                <p class='listItems'>
+                                    <input type="checkbox" name="strengthId[]" value="<?php echo $row["tasteStrength_id"]; ?>">
+                                    <?php
+                                    echo $row["tasteStrength_id"] . " - " . $row["tasteStrength"] . "</p>";
+                                }
+                                ?>
+                                <!-- Submit button for deleting rows -->
+                                <input type="submit" id='delete' name="delete" value="Delete">
+                                <?php
+                            } else {
+                                echo "Database empty" . $conn->error;
+                            }
+
+                            $conn->close();
+                            ?>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <?php         include_once '../functions/footer.php';
+        <?php
+        include_once '../functions/footer.php';
         $stmt->close();
-        $conn->close(); ?>
+        $conn->close();
+        ?>
     </body>
 </html>

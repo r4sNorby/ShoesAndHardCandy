@@ -103,56 +103,30 @@ if (mysqli_num_rows($result) > 0) {
                     'colors': [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
                     is3D: true,
                     pieSliceText: 'percentage'
-                    // Google Charts defaults to the size of the parent box
-                    /*'width': 100%,
-                    'height': 100%*/};
+                            // Google Charts defaults to the size of the parent box
+                            /*'width': 100%,
+                             'height': 100%*/};
                 var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
                 chart.draw(data, options);
             }
         </script>
     </head>
     <body>
-        <aside>
-            <div id="sidebar" class="sidebar"></div>
-            <div id="sidebarbuttons" class="sidebarbuttons">
-                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="../shoeSize/shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
-                <a href="../shoeSize/shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-                <a href="../shoeSize/shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
-            </div>
-        </aside>
+        <?php
+        include_once 'shoeSidebar.php';
+        include_once '../functions/header.php';
+        ?>
 
-        <header>
-            <div class="topnav">
-                <!-- Sidebar button -->
-                <div class="togglebtn" onclick="toggle()">
-                    <a>☰ Udvid menu</a>
-                </div>
-
-                <!-- Header Buttons-->
-                <div class='headerButtons'>
-                    <a class="buttons" href="index.php">Hjem</a>
-                    <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
-                    <a class="buttons" href="../hardCandy/hardCandy.php">Birger Bolcher</a>
-                    <div class="dropbtn">
-                        <div class="droptxt">
-                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
-                        </div>
-                        <div class="dropdown-content">
-                            <a href="index.php">Hjem</a>
-                            <a href="../shoeSize/shoes.php">Skostørrelser</a>
-                            <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
 
         <div id="main">
-            <h1>Hyppighed over skostørrelser</h1>
+            <div id="content">
+                <h1>Hyppighed over skostørrelser</h1>
 
-            <div id="pie_div"></div>
+                <div id="pie_div"></div>
+            </div>
         </div>
 
         <footer>

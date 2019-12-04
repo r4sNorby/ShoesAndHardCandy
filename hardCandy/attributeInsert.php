@@ -24,68 +24,70 @@ include_once '../functions/attributeFunctions.php';
         ?>
 
         <div id="main">
+            <div id="content">
 
-            <?php
-            $color = filter_input(INPUT_POST, 'color');
-            $sourness = filter_input(INPUT_POST, 'sourness');
-            $tasteStrength = filter_input(INPUT_POST, 'strength');
-            $tasteType = filter_input(INPUT_POST, 'type');
+                <?php
+                $color = filter_input(INPUT_POST, 'color');
+                $sourness = filter_input(INPUT_POST, 'sourness');
+                $tasteStrength = filter_input(INPUT_POST, 'strength');
+                $tasteType = filter_input(INPUT_POST, 'type');
 
-            if (isset($color)) {
-                $attribute = $color;
-                $DBattribute = "color";
-                $tableName = "1_color";
-                $redirect = "candyColor";
-            } else if (isset($sourness)) {
-                $attribute = $sourness;
-                $DBattribute = "sourness";
-                $tableName = "1_sourness";
-                $redirect = "candySourness";
-            } else if (isset($tasteStrength)) {
-                $attribute = $tasteStrength;
-                $DBattribute = "tasteStrength";
-                $tableName = "1_tasteStrength";
-                $redirect = "candyStrength";
-            } else if (isset($tasteType)) {
-                $attribute = $tasteType;
-                $DBattribute = "tasteType";
-                $tableName = "1_tasteType";
-                $redirect = "candyType";
-            }
+                if (isset($color)) {
+                    $attribute = $color;
+                    $DBattribute = "color";
+                    $tableName = "1_color";
+                    $redirect = "candyColor";
+                } else if (isset($sourness)) {
+                    $attribute = $sourness;
+                    $DBattribute = "sourness";
+                    $tableName = "1_sourness";
+                    $redirect = "candySourness";
+                } else if (isset($tasteStrength)) {
+                    $attribute = $tasteStrength;
+                    $DBattribute = "tasteStrength";
+                    $tableName = "1_tasteStrength";
+                    $redirect = "candyStrength";
+                } else if (isset($tasteType)) {
+                    $attribute = $tasteType;
+                    $DBattribute = "tasteType";
+                    $tableName = "1_tasteType";
+                    $redirect = "candyType";
+                }
 
-            if (isset($attribute, $DBattribute, $tableName, $redirect)) {
+                if (isset($attribute, $DBattribute, $tableName, $redirect)) {
 
-                $stmt = preparedAttInsert($DBattribute, $tableName, $attribute, $conn);
-                $result = checkAttInsert($attribute, $tableName, $DBattribute, $conn);
-                // Print the result
-                //print_r($result);
+                    $stmt = preparedAttInsert($DBattribute, $tableName, $attribute, $conn);
+                    $result = checkAttInsert($attribute, $tableName, $DBattribute, $conn);
+                    // Print the result
+                    //print_r($result);
 
-                if ($result->num_rows < 1) {
-                    // Execute statement and check if it was successful
-                    if ($stmt->execute()) {
-                        // !!Redirect after submitting form!!
-                        if (isset($color)) {
-                            header('refresh:0; url=candyColor.php');
-                        } else if (isset($sourness)) {
-                            header('refresh:0; url=candySourness.php');
-                        } else if (isset($tasteStrength)) {
-                            header('refresh:0; url=candyStrength.php');
-                        } else if (isset($tasteType)) {
-                            header('refresh:0; url=candyType.php');
-                            echo "You should be redirecting in 1 second. If not, please click <a href='$redirect.php'>redirect</a>";
+                    if ($result->num_rows < 1) {
+                        // Execute statement and check if it was successful
+                        if ($stmt->execute()) {
+                            // !!Redirect after submitting form!!
+                            if (isset($color)) {
+                                header('refresh:0; url=candyColor.php');
+                            } else if (isset($sourness)) {
+                                header('refresh:0; url=candySourness.php');
+                            } else if (isset($tasteStrength)) {
+                                header('refresh:0; url=candyStrength.php');
+                            } else if (isset($tasteType)) {
+                                header('refresh:0; url=candyType.php');
+                                echo "You should be redirecting in 1 second. If not, please click <a href='$redirect.php'>redirect</a>";
+                            }
+                        } else {
+                            // Or display error
+                            echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
                         }
                     } else {
-                        // Or display error
-                        echo "The SQL: '" . $sql . "' was faulty!<br>" . $stmt->error;
+                        echo "Attribute already exists!";
                     }
                 } else {
-                    echo "Attribute already exists!";
+                    echo "No values where chosen!";
                 }
-            } else {
-                echo "No values where chosen!";
-            }
-            ?>
+                ?>
 
+            </div>
         </div>
         <?php
         echo "Hej";
