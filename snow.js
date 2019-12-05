@@ -1,3 +1,5 @@
+// https://www.kirupa.com/html5/the_falling_snow_effect.htm
+
 // Array to store our Snowflake objects
 var snowflakes = [];
 

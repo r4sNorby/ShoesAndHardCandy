@@ -41,21 +41,15 @@ and open the template in the editor.
             <span class="snowflake"></span>
         </div>
 
-        <div id="main">
-            <div class="flex-container">
-                <div class="left">
-                    <div class="link">
-                        <a href="shoeSize/shoes.php">Skostørrelse</a>
+        <div class="testMain">
+            <div class="flexie-flexie">
+                <div class="test">
+                    <div class="teste">
+                        <div class="testlink">
+                            <a href="shoeSize/shoes.php">Skostørrelse</a>
+                        </div>
                     </div>
                 </div>
-                <div class="right">
-                    <div class="link">
-                        <a href="hardCandy/hardCandy.php">Birger Bolcher</a>
-                    </div>
-                </div>
-            </div>
-            <div class="link">
-                <a href="shoeSize/letItSnow.php">Merry Christmas</a>
             </div>
         </div>
 
