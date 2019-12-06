@@ -69,44 +69,17 @@ if (mysqli_num_rows($result) > 0) {
                 chart.draw(data, options);
             }
         </script>
+        <script src="../snow.js"></script>
     </head>
     <body>
-        <aside>
-            <div id="sidebar" class="sidebar"></div>
-            <div id="sidebarbuttons" class="sidebarbuttons">
-                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-                <a href="../shoeSize/shoes.php"><i class="material-icons">input</i> Indsæt Bruger</a>
-                <a href="../shoeSize/shoeList.php"><i class="material-icons">list</i> Brugerliste</a>
-                <a href="../shoeSize/shoeGraph.php"><i class="material-icons">insert_chart</i> Brugergraf</a>
-                <a href="shoePie.php"><i class="material-icons">pie_chart</i> CirkelDiagram</a>
-            </div>
-        </aside>
-
-        <header>
-            <div class="topnav">
-                <!-- Sidebar button -->
-                <div class="togglebtn" onclick="toggle()">
-                    <a>☰ Udvid menu</a>
-                </div>
-
-                <!-- Header Buttons-->
-                <div class='headerButtons'>
-                    <a class="buttons" href="index.php">Hjem</a>
-                    <a class="buttons" href="../shoeSize/shoes.php">Skostørrelser</a>
-                    <a class="buttons" href="../hardCandy/hardCandy.php">Birger Bolcher</a>
-                    <div class="dropbtn">
-                        <div class="droptxt">
-                            <a class="droptxt"><i class="material-icons">arrow_drop_down</i> Projekter</a>
-                        </div>
-                        <div class="dropdown-content">
-                            <a href="index.php">Hjem</a>
-                            <a href="../shoeSize/shoes.php">Skostørrelser</a>
-                            <a href="../hardCandy/hardCandy.php">Birger Bolcher</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <?php
+        include_once 'shoeSidebar.php';
+        include_once '../functions/header.php';
+        ?>
+        
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
 
         <div id="main">
             <div id="content">

@@ -7,18 +7,23 @@ and open the template in the editor.
 <?php include_once '../functions/connection.php'; ?>
 <html>
     <head>
+        <title>Bolcheliste</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="../functions/sidebar.js"></script>
-        <title>Bolcheliste</title>
+        <script src="../snow.js"></script>
     </head>
     <body>
         <?php
         include_once '../hardCandy/candySidebar.php';
         include_once '../functions/header.php';
         ?>
+
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
 
         <div id="main">
             <div id="content">

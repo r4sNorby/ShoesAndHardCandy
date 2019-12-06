@@ -1,17 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "xran39.skp-dp";
-$password = "k452ppy3";
-$db_name = "xran39_skp_dp_sde_dk";
-
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT shoeSize FROM 1_ShoeSize ORDER BY shoeSize DESC";
-$result = $conn->query($sql);
+include_once '../functions/connection.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,6 +33,9 @@ $result = $conn->query($sql);
                 data.addColumn('number', 'Hyppighed');
                 data.addRows([
 <?php
+$sql = "SELECT shoeSize FROM 1_ShoeSize ORDER BY shoeSize DESC";
+$result = $conn->query($sql);
+
 if (mysqli_num_rows($result) > 0) {
 
     // Create Array
@@ -110,6 +101,7 @@ if (mysqli_num_rows($result) > 0) {
                 chart.draw(data, options);
             }
         </script>
+        <script src="../snow.js"></script>
     </head>
     <body>
         <?php
@@ -129,20 +121,8 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
 
-        <footer>
-            <div class="footerTop">
-                <nav class="footerButtons">
-                    <a class="footerLink" href="index.php">HJEM</a>
-                    <span>|</span>
-                    <a class="footerLink" href="../shoeSize/shoes.php">SKOSTØRRELSER</a>
-                    <span>|</span>
-                    <a class="footerLink" href="../hardCandy/hardCandy.php">BIRGER BOLCHER</a>
-                </nav>
-            </div>
-
-            <div class="footerBottom">
-                <span>&COPY; 2019 Rasmus Nørby</span>
-            </div>
-        </footer>
+        <?php
+        include_once '../functions/footer.php';
+        ?>
     </body>
 </html>

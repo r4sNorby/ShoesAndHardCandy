@@ -41,9 +41,13 @@
                 chart.draw(data, options);
             }
         </script>
+        <script src="../snow.js"></script>
     </head>
 
     <body>
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
 
         <a href="../shoeSize/shoes.php">Home</a>
         <a href="../shoeSize/shoeList.php">List</a>

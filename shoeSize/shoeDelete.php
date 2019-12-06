@@ -10,17 +10,23 @@ include_once '../functions/shoeFunctions.php';
 ?>
 <html>
     <head>
+        <title>Sletter bruger</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="../functions/sidebar.js"></script>
-        <title>Sletter bruger</title>
+        <script src="snow.js"></script>
     </head>
     <body><?php
         include_once '../shoeSize/shoeSidebar.php';
         include_once '../functions/header.php';
         ?>
+        
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
+        
         <div id="main">
             <div id="content">
                 <?php
