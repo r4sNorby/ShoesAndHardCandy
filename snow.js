@@ -1,9 +1,10 @@
-var d = new Date();
-var m = d.getMonth();
+// This code is taken from this site:
+// https://www.kirupa.com/html5/the_falling_snow_effect.htm
 
+var d = new Date();
+var m = d.getMonth()
 
 if (m === 11) {
-// https://www.kirupa.com/html5/the_falling_snow_effect.htm
 
 // Array to store our Snowflake objects
     var snowflakes = [];
