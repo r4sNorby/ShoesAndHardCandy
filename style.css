@@ -362,7 +362,7 @@ style of the sidenav (less padding and a smaller font size) */
     align-self: center;
 }
 
-
+/* Snow.js */
 #snowflakeContainer {
     position: absolute;
     left: 0px;

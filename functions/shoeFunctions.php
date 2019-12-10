@@ -4,8 +4,8 @@
 // Generate Prepared Statement
 function preparedShoeInsert($name, $email, $dateOfBirth, $shoeSize, $conn) {
 
-    // 1_ShoeSize fordi det er efter første hovedforløb
-    $sql = "INSERT INTO 1_ShoeSize (name, email, dateOfBirth, shoeSize)
+    // 1_shoeSize fordi det er efter første hovedforløb
+    $sql = "INSERT INTO 1_shoeSize (name, email, dateOfBirth, shoeSize)
                VALUES (?, ?, ?, ?)";
 
     // Prepared statement
@@ -19,7 +19,7 @@ function preparedShoeInsert($name, $email, $dateOfBirth, $shoeSize, $conn) {
 
 function checkShoeInsert($name, $email, $shoeSize, $conn) {
     // Check query if attribute exists in database.
-    $check = "SELECT * FROM 1_ShoeSize WHERE name = '$name' AND email = '$email' AND shoeSize = '$shoeSize'";
+    $check = "SELECT * FROM 1_shoeSize WHERE name = '$name' AND email = '$email' AND shoeSize = '$shoeSize'";
     $result = $conn->query($check);
 
     return $result;
@@ -30,7 +30,7 @@ function checkShoeInsert($name, $email, $shoeSize, $conn) {
 function preparedShoeDelete($conn, $del_id) {
 
 
-    $sql = "DELETE FROM 1_ShoeSize WHERE id = ?";
+    $sql = "DELETE FROM 1_shoeSize WHERE id = ?";
 
     // Prepared statement
     $stmt = $conn->prepare($sql);

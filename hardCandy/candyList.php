@@ -72,109 +72,109 @@ and open the template in the editor.
                         // Show all
                         if (isset($candyList)) {
                             if ($candyList == "all") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "ORDER BY id";
                                 // Red candy
                             } else if ($candyList == "red") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE color = 'rød'" .
                                         "ORDER BY id ASC";
                                 // Red and blue candy
                             } else if ($candyList == "redAndBlue") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE color IN ('rød', 'blå')" .
                                         "ORDER BY id";
                                 // All except red candy
                             } else if ($candyList == "notRed") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE color != 'rød'" .
                                         "ORDER BY name ASC";
                                 // All starting with a B
                             } else if ($candyList == "startB") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE name LIKE 'b%'" .
                                         "ORDER BY id";
                                 // All candy that has an E in its name
                             } else if ($candyList == "anE") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE name LIKE '%e%'" .
                                         "ORDER BY id";
                                 // All candy that weighs less than 10 grams
                             } else if ($candyList == "lessThanTen") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE weight < 10 " .
                                         "ORDER BY weight ASC";
                                 // All candy that weighs between 10 and 12 grams
                             } else if ($candyList == "tenAndTwelve") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE weight between 10 AND 12 " .
                                         "ORDER BY name ASC, weight";
                                 // The 3 biggest/heaviest candys
                             } else if ($candyList == "heavyThree") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "ORDER BY weight DESC LIMIT 3";
                             }
                             // All info about a random piece of candy
                         } else if (isset($random)) {
-                            $sql = "SELECT * FROM 1_HardCandy " .
-                                    "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                    "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                    "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                    "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                            $sql = "SELECT * FROM 1_hardCandy " .
+                                    "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                    "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                    "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                    "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                     "ORDER BY RAND() LIMIT 1";
                             // Search Bar
                         } else if (isset($search)) {
                             if ($search != "") {
-                                $sql = "SELECT * FROM 1_HardCandy " .
-                                        "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                        "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                        "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                        "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                                $sql = "SELECT * FROM 1_hardCandy " .
+                                        "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                        "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                        "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                        "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                         "WHERE name LIKE '%" . $search . "%'" .
                                         "ORDER BY id ASC";
                             }
                         } else {
-                            $sql = "SELECT * FROM 1_HardCandy " .
-                                    "INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id " .
-                                    "INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id " .
-                                    "INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
-                                    "INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id " .
+                            $sql = "SELECT * FROM 1_hardCandy " .
+                                    "INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id " .
+                                    "INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id " .
+                                    "INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id " .
+                                    "INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id " .
                                     "ORDER BY id";
                         }
 

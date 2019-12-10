@@ -40,11 +40,11 @@ function preparedAttDelete($tableName, $DBId, $conn, $del_id) {
 // Are there any hard candy with the attributes we are deleting?
 function checkAttDelete($del_id, $DBId, $tableName, $conn) {
     // Check query if attribute exists in database.
-    $check = "SELECT * FROM 1_HardCandy 
-            INNER JOIN 1_color ON 1_HardCandy.color_id = 1_color.color_id 
-            INNER JOIN 1_sourness ON 1_HardCandy.sourness_id = 1_sourness.sourness_id 
-            INNER JOIN 1_tasteStrength ON 1_HardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id 
-            INNER JOIN 1_tasteType ON 1_HardCandy.tasteType_id = 1_tasteType.tasteType_id 
+    $check = "SELECT * FROM 1_hardCandy 
+            INNER JOIN 1_color ON 1_hardCandy.color_id = 1_color.color_id 
+            INNER JOIN 1_sourness ON 1_hardCandy.sourness_id = 1_sourness.sourness_id 
+            INNER JOIN 1_tasteStrength ON 1_hardCandy.tasteStrength_id = 1_tasteStrength.tasteStrength_id 
+            INNER JOIN 1_tasteType ON 1_hardCandy.tasteType_id = 1_tasteType.tasteType_id 
             WHERE $tableName.$DBId = $del_id
             ORDER BY id";
 

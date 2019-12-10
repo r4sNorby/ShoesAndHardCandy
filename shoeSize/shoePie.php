@@ -33,7 +33,7 @@ include_once '../functions/connection.php';
                 data.addColumn('number', 'Hyppighed');
                 data.addRows([
 <?php
-$sql = "SELECT shoeSize FROM 1_ShoeSize ORDER BY shoeSize DESC";
+$sql = "SELECT shoeSize FROM 1_shoeSize ORDER BY shoeSize DESC";
 $result = $conn->query($sql);
 
 if (mysqli_num_rows($result) > 0) {
